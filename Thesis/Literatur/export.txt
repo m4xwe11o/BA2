@@ -1,0 +1,11 @@
+﻿@misc{Armgren852125,
+   author = {Armgren, Marc},
+   institution = {Umeå University, Department of Computing Science},
+   pages = {25},
+   school = {Umeå University, Department of Computing Science},
+   title = {Mobile Cross-platform development versus native development A look at Xamarin Platform},
+   series = {UMNAD},
+   number = {1019},
+   abstract = {The world of mobile phones is currently inhabited by three large rivals. We have Apple with their iOS devices, Microsoft with the Windows Phone line, and various devices with Googles Android operating system. Developing for all platforms individually is labour intensive and time consuming. Therefore cross-platform development is of interest for companies large as small. The technique which gives performance closest to native development is called cross compiling, which compiles native applications from a common codebase. This thesis takes a closer look at the performance of the tool Xamarin Platform, in which applications for iOS, Windows Phone and Android can be created. The performance of Xamarin Platform applications on iOS and Android is native for most user interface components. Network performance is native or better. However computational tasks are very slow compared to natively developed applications. Xamarin PlatformWindows Phone applications are not covered by this thesis. },
+   year = {2015}
+}

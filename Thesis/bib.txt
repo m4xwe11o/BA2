@@ -1,0 +1,33 @@
+@book{book:1329080,
+   title =     {Xamarin.Forms Succinctly},
+   author =    {Derek Jensen},
+   publisher = {Syncfusion Inc},
+   isbn =      {},
+   year =      { 2015},
+   series =    {},
+   edition =   {},
+   volume =    {},
+   url =       {http://gen.lib.rus.ec/book/index.php?md5=b8863dfb1582b6ecdfe70888513d99a6}
+}
+@book{book:2178967,
+   title =     { Xamarin.Forms Essentials: First Steps Toward Cross-Platform Mobile Apps},
+   author =    {Gerald Versluis (auth.)},
+   publisher = {Apress},
+   isbn =      {978-1-4842-3239-2,978-1-4842-3240-8},
+   year =      {2017},
+   series =    {},
+   edition =   {1},
+   volume =    {},
+   url =       {http://gen.lib.rus.ec/book/index.php?md5=42bf50d83143ead31f9c97bb32052dbf}
+}
+@book{book:1524894,
+   title =     {Cross-platform UI Development with Xamarin.Forms: Create a fully operating application and deploy it to major mobile platforms using Xamarin.Forms},
+   author =    {Paul F. Johnson},
+   publisher = {Packt Publishing},
+   isbn =      {978-1-78439-119-5},
+   year =      {2015},
+   series =    {},
+   edition =   {},
+   volume =    {},
+   url =       {http://gen.lib.rus.ec/book/index.php?md5=679cac02305669b47f26b74c67433243}
+} 

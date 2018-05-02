@@ -1,0 +1,65 @@
+\begin{thebibliography}{Arm15}
+
+\bibitem[Arm15]{Armgren852125}
+Marc Armgren.
+\newblock Mobile cross-platform development versus native development a look at
+  xamarin platform, 2015.
+
+\bibitem[BSS17]{8016193}
+V.~Bhuttoo, K.~Soman, and R.~K. Sungkur.
+\newblock Responsive design and content adaptation for e-learning on mobile
+  devices.
+\newblock In {\em 2017 1st International Conference on Next Generation
+  Computing Applications (NextComp)}, pages 163--168, July 2017.
+
+\bibitem[Gri15]{Oleksandr2015}
+Oleksandr Gridin.
+\newblock {\em Xamarin as a tool for cross-platform mobile development}.
+\newblock PhD thesis, 2015.
+
+\bibitem[Her15]{book:Xamarin-Mobile-Application-Development}
+Dan Hermes.
+\newblock {\em Xamarin Mobile Application Development: Cross-Platform C-Sharp
+  and Xamarin.Forms Fundamentals}.
+\newblock Apress, 2015.
+
+\bibitem[Jen15]{book:Xamarin.Forms-Succinctly}
+Derek Jensen.
+\newblock {\em Xamarin.Forms Succinctly}.
+\newblock Syncfusion Inc, 2015.
+
+\bibitem[Joh15]{book:Cross-platform-UI-Development-with-Xamarin.Forms}
+Paul~F. Johnson.
+\newblock {\em Cross-platform UI Development with Xamarin.Forms: Create a fully
+  operating application and deploy it to major mobile platforms using
+  Xamarin.Forms}.
+\newblock Packt Publishing, 2015.
+
+\bibitem[MP16]{Mukesh2016}
+Archit~Poddar Mukesh~Prajapati, Dhananjay~Phadake.
+\newblock Study on xamarin cross-platform framework.
+\newblock pages 13--18, July 2016.
+
+\bibitem[Pes18]{Maximilian2017}
+Maximilian Pessl.
+\newblock {\em Cross-platform developement mittels Xamarin.Native}.
+\newblock PhD thesis, 2018.
+
+\bibitem[Rad16]{Amer2016}
+Amer~A. Radi.
+\newblock {\em Evaluation of Xamarin Forms for MultiPlatform Mobile Application
+  Development}.
+\newblock PhD thesis, 2016.
+
+\bibitem[Soy17]{Soylemez2017}
+Ilke Soylemez.
+\newblock {\em WAPICE NEWS MOBILE APPLICATION}.
+\newblock PhD thesis, 2017.
+
+\bibitem[Ver17]{book:Xamarin.Forms-Essentials:}
+Gerald Versluis.
+\newblock {\em Xamarin.Forms Essentials: First Steps Toward Cross-Platform
+  Mobile Apps}.
+\newblock Apress, 1 edition, 2017.
+
+\end{thebibliography}

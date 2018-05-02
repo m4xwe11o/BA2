@@ -1,0 +1,64 @@
+This is BibTeX, Version 0.99d (TeX Live 2017)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: thesis.aux
+A level-1 auxiliary file: title.aux
+A level-1 auxiliary file: acknowl.aux
+A level-1 auxiliary file: abstracts.aux
+A level-1 auxiliary file: glossary.aux
+A level-1 auxiliary file: keywords.aux
+A level-1 auxiliary file: toc.aux
+A level-1 auxiliary file: chapter1.aux
+A level-1 auxiliary file: chapter2.aux
+A level-1 auxiliary file: chapter3.aux
+A level-1 auxiliary file: chapter4.aux
+A level-1 auxiliary file: chapter5.aux
+A level-1 auxiliary file: appendix.aux
+The style file: alpha.bst
+Database file #1: thesis.bib
+Warning--empty school in Oleksandr2015
+Warning--empty booktitle in Mukesh2016
+Warning--empty school in Maximilian2017
+Warning--empty school in Amer2016
+Warning--empty school in Soylemez2017
+You've used 11 entries,
+            2543 wiz_defined-function locations,
+            634 strings with 6310 characters,
+and the built_in function-call counts, 3378 in all, are:
+= -- 318
+> -- 105
+< -- 12
++ -- 29
+- -- 29
+* -- 192
+:= -- 560
+add.period$ -- 32
+call.type$ -- 11
+change.case$ -- 50
+chr.to.int$ -- 11
+cite$ -- 16
+duplicate$ -- 177
+empty$ -- 277
+format.name$ -- 49
+if$ -- 694
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 10
+newline$ -- 57
+num.names$ -- 33
+pop$ -- 82
+preamble$ -- 1
+purify$ -- 68
+quote$ -- 0
+skip$ -- 137
+stack$ -- 0
+substring$ -- 125
+swap$ -- 28
+text.length$ -- 12
+text.prefix$ -- 9
+top$ -- 0
+type$ -- 72
+warning$ -- 5
+while$ -- 27
+width$ -- 15
+write$ -- 134
+(There were 5 warnings)

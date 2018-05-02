@@ -1,0 +1,9 @@
+﻿@misc{Waclawek975068,
+   author = {Waclawek, Mariusz},
+   institution = {Luleå University of Technology, Department of Computer Science, Electrical and Space Engineering},
+   school = {Luleå University of Technology, Department of Computer Science, Electrical and Space Engineering},
+   title = {Cross-Platform, Parallel Development in Xamarin : Design and Implementation of the Platform for Building Extensible, Cross-platform GUI Applications Based on Plug-in Framework in Xamarin},
+   keywords = {Xamarin, Cross-Platform, Extensible, Plug-in, Framework, MVVM, MEF, parallel},
+   abstract = {This thesis describes research of plug-in frameworks, their application and benefits and also a way to develop cross-platform GUI applications in Xamarin with Xamarin.Forms. It describes also the limitations that mobile systems set on plug-in frameworks. The result of the thesis is a basic and extensible platform for building GUI applications based on the MVVM design pattern with modularity and extensibility of MEF 2.0. },
+   year = {2016}
+}

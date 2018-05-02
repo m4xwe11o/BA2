@@ -1,0 +1,198 @@
+%----------------------------------------------------------------
+%
+%  File    :  thesis.tex
+%
+%  Authors :  Keith Andrews, IICM, TU Graz, Austria
+%             Manuel Koschuch, FH Campus Wien, Austria
+% 
+%  Created :  22 Feb 96
+% 
+%  Changed :  24 March 2009
+% 
+%----------------------------------------------------------------
+
+% Please send any questions, comments, remarks or complaints to
+% manuel.koschuch@fh-campuswien.ac.at
+
+
+% --- General Setup ---------------------------------------------
+
+\documentclass[12pt,a4paper,oneside]{book}
+
+%\usepackage{times}
+
+%\renewcommand{\rmdefault}{phv} % Arial
+%\renewcommand{\sfdefault}{phv} % Arial
+
+\usepackage[utf8]{inputenc}   % so can use Umlaut chars  ä, ü
+
+\usepackage[bf,sf]{subfigure}
+\renewcommand{\subfigtopskip}{0mm}
+\renewcommand{\subfigcapmargin}{0mm}
+
+\usepackage[ngerman]{babel}         % load babel *before* natbi
+%\usepackage[austrian,english]{babel}         % load babel *before* natbi
+%\usepackage[square]{natbib}                  % citations
+
+
+\usepackage{url}
+
+\usepackage{latexsym}
+
+\usepackage{ifpdf} % detect outputstyle
+
+\usepackage{geometry} % define pagesize in more detail
+
+\usepackage{fancyhdr} % nicer headers and footers
+
+\usepackage{colortbl} %define colored backgrounds for tables
+
+\usepackage{listings}
+
+\usepackage{multicol}
+
+\usepackage{wrapfig}
+
+\ifpdf
+  \usepackage[pdftex]{graphicx}
+  \DeclareGraphicsExtensions{.pdf,.jpg,.png}
+  \pdfcompresslevel=9
+  \pdfpageheight=297mm
+  \pdfpagewidth=210mm
+  \usepackage[         % hyperref should be last package loaded
+    pdftex,
+    bookmarks,
+    bookmarksnumbered,
+    linktocpage,
+    pagebackref,
+    pdfview={Fit},
+    pdfstartview={Fit},
+    pdfpagemode=UseOutlines,                 % open bookmarks in Acrobat
+  ]{hyperref}
+  \usepackage{bookmark}
+\else                      % latex
+  \usepackage{graphicx}
+  \DeclareGraphicsExtensions{.ps}
+\fi
+
+\usepackage{xcolor}
+
+
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+\definecolor{maroon}{rgb}{0.5,0,0}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\lstdefinelanguage{XML}
+{
+  basicstyle=\ttfamily,
+  morestring=[s]{"}{"},
+  morecomment=[s]{?}{?},
+  morecomment=[s]{!--}{--},
+  commentstyle=\color{darkgreen},
+  moredelim=[s][\color{black}]{>}{<},
+  moredelim=[s][\color{red}]{\ }{=},
+  stringstyle=\color{blue},
+  identifierstyle=\color{maroon}
+}
+
+\lstdefinestyle{SQL-Michalstyle}
+{%
+  language   = SQL,
+  basicstyle = \fontsize{9}{13}\ttfamily,
+  columns    = fixed,
+  frame      = single,
+  numbers    = left,
+}
+
+\lstdefinestyle{JAVA-Own}
+{%
+  language=Java,
+  showspaces=false,
+  showtabs=false,
+  breaklines=true,
+  showstringspaces=false,
+  breakatwhitespace=true,
+  frame      = single,
+  numbers    = left,
+  commentstyle=\color{pgreen},
+  keywordstyle=\color{pblue},
+  stringstyle=\color{pred},
+  basicstyle=\fontsize{9}{13}\ttfamily,
+  moredelim=[il][\textcolor{pgrey}]{$$},
+  moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%}
+}
+\lstdefinestyle{sharpc}{
+  language   = [Sharp]C,
+  frame      = single,
+  numbers    = left,
+  breaklines=true,
+  breakatwhitespace=true,
+  basicstyle =\fontsize{9}{13}\ttfamily,
+}
+
+\geometry{a4paper,left=30mm,right=25mm, top=30mm, bottom=30mm}
+
+\setlength{\parskip}{3pt plus 1pt minus 0pt}       % vert. space before a paragraph
+
+\setcounter{tocdepth}{1}        % lowest section level entered in ToC
+\setcounter{secnumdepth}{2}     % lowest section level still numbered
+
+
+% --- Start of Document ----------------------------------------
+
+
+\begin{document}
+
+\frontmatter
+\normalsize
+\pagestyle{empty}            % for title pages
+
+\include{title}              % Title Page
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\setlength{\headheight}{15pt}
+\renewcommand{\headrulewidth}{0.0pt}
+\fancyfoot[R]{\thepage}      
+\pagenumbering{roman}        % for preliminary pages
+
+\include{acknowl}            % Acknowledgements
+
+\include{abstracts}          % Englisch and German abstracts
+
+\include{glossary}           % Glossary
+
+\include{keywords}           % Keywords
+
+\include{toc}                % Table of Contents
+
+\mainmatter
+
+\cleardoublepage
+\renewcommand{\headrulewidth}{0.4pt}
+\pagestyle{fancy}            % for main pages
+\fancyhead[RO]{\slshape \nouppercase{\leftmark}}
+\fancyfoot[R]{\thepage}   
+\pagenumbering{arabic}      % for main pages
+
+%--- Include your chapters here ----------
+
+\include{chapter1}          % Introduction
+
+\include{chapter2}          % Background - Xamarin
+
+\include{chapter3}          % The App - MCKB
+
+\include{chapter4}          % Results
+
+\include{chapter5}          % Conclusion
+
+\appendix
+
+\include{appendix}          % Appendix A
+
+\end{document}
+
