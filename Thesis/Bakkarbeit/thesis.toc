@@ -11,6 +11,7 @@
 \contentsline {section}{\numberline {3.1}Applikations Spezifizierung}{14}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Funktionale Anforderungen}{14}{subsection.3.1.1}
 \contentsline {subsection}{\numberline {3.1.2}Nicht Funktionale Anforderungen}{14}{subsection.3.1.2}
+\contentsline {section}{\numberline {3.2}Unterschiede zur Xamarin.Native Version}{14}{section.3.2}
 \contentsline {chapter}{\numberline {4}Ergebnisse}{15}{chapter.4}
 \contentsline {chapter}{\numberline {5}Fazit}{16}{chapter.5}
 \contentsline {chapter}{\numberline {A}Anhang/Erg\IeC {\"a}nzende Information}{17}{appendix.A}

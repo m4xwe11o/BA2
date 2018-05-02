@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.12.6)  19 MAR 2018 23:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.12.6)  2 MAY 2018 18:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1014,7 +1014,7 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 44.
  [2]
 <images/statistic_id266136_global-mobile-os-market-share-2009-2017-by-quarter.p
-ng, id=84, 1003.75pt x 745.78625pt>
+ng, id=89, 1003.75pt x 745.78625pt>
 File: images/statistic_id266136_global-mobile-os-market-share-2009-2017-by-quar
 ter.png Graphic file (type png)
 
@@ -1043,6 +1043,11 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 54.
 [3 <./images/statistic_id266136_global-mobile-os-market-share-2009-2017-by-quar
 ter.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 57--57
+[][][]\OT1/cmr/m/n/10 https://medium.com/@MasterOfCodeGlobal/best-10-android-fr
+ameworks-for-building-android-
+ []
+
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 71.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1051,7 +1056,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 71.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 71.
- [4]
+[4]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 72.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1099,7 +1104,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 35.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 35.
- <images/code-sharing2.png, id=130, 710.655pt x 441.65pt>
+ <images/code-sharing2.png, id=138, 710.655pt x 441.65pt>
 File: images/code-sharing2.png Graphic file (type png)
 
 <use images/code-sharing2.png>
@@ -1114,7 +1119,7 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 50.
  [8 <./images/code-sharing2.png>]
-<images/xamarinforms-button-rendering.png, id=143, 526.96875pt x 264.23718pt>
+<images/xamarinforms-button-rendering.png, id=151, 526.96875pt x 264.23718pt>
 File: images/xamarinforms-button-rendering.png Graphic file (type png)
 
 <use images/xamarinforms-button-rendering.png>
@@ -1130,7 +1135,7 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 66.
  [9 <./images/xamarinforms-button-rendering.png>] <images/XAML-preview.png, id=
-157, 521.95pt x 234.8775pt>
+166, 521.95pt x 234.8775pt>
 File: images/XAML-preview.png Graphic file (type png)
 
 <use images/XAML-preview.png>
@@ -1145,7 +1150,7 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 77.
  [10 <./images/XAML-preview.png>]
-<images/project-structure.png, id=166, 271.0125pt x 344.28625pt>
+<images/project-structure.png, id=174, 271.0125pt x 344.28625pt>
 File: images/project-structure.png Graphic file (type png)
 
 <use images/project-structure.png>
@@ -1170,14 +1175,14 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 96.
 
-<images/Xamarin-Android.png, id=179, 486.01575pt x 150.41194pt>
+<images/Xamarin-Android.png, id=187, 486.01575pt x 150.41194pt>
 File: images/Xamarin-Android.png Graphic file (type png)
 
 <use images/Xamarin-Android.png>
 Package pdftex.def Info: images/Xamarin-Android.png used on input line 104.
 (pdftex.def)             Requested size: 441.01773pt x 136.4895pt.
 
-<images/Xamarin-iOS.png, id=182, 418.71431pt x 114.27693pt>
+<images/Xamarin-iOS.png, id=190, 418.71431pt x 114.27693pt>
 File: images/Xamarin-iOS.png Graphic file (type png)
 
 <use images/Xamarin-iOS.png>
@@ -1192,7 +1197,7 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 120.
  [12 <./images/Xamarin-Android.png> <./images/Xamarin-iOS.png>] <images/Xamarin
--Forms.png, id=191, 323.40825pt x 151.767pt>
+-Forms.png, id=199, 323.40825pt x 151.767pt>
 File: images/Xamarin-Forms.png Graphic file (type png)
 
 <use images/Xamarin-Forms.png>
@@ -1221,6 +1226,10 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 18.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 18.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 27.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 27.
 )
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 187.
@@ -1376,17 +1385,17 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 197.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 197.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 197.
 Package rerunfilecheck Info: File `thesis.brf' has not changed.
-(rerunfilecheck)             Checksum: 8328947019C1B48815920946FA6C8EB2;679.
+(rerunfilecheck)             Checksum: 573C6B56E6C499F77C0E61F506837E81;814.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 197.
  ) 
 Here is how much of TeX's memory you used:
- 9403 strings out of 492995
- 135889 string characters out of 6132704
- 253045 words of memory out of 5000000
- 12661 multiletter control sequences out of 15000+600000
+ 9412 strings out of 492995
+ 136006 string characters out of 6132704
+ 253185 words of memory out of 5000000
+ 12667 multiletter control sequences out of 15000+600000
  9835 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,12n,43p,1432b,361s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,12n,43p,1473b,361s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
@@ -1396,10 +1405,10 @@ ocal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
 l/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local
 /texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/
 texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on thesis.pdf (29 pages, 345168 bytes).
+Output written on thesis.pdf (29 pages, 348192 bytes).
 PDF statistics:
- 345 PDF objects out of 1000 (max. 8388607)
- 287 compressed objects within 3 object streams
- 67 named destinations out of 1000 (max. 500000)
- 153 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 358 PDF objects out of 1000 (max. 8388607)
+ 300 compressed objects within 3 object streams
+ 70 named destinations out of 1000 (max. 500000)
+ 161 words of extra memory for PDF output out of 10000 (max. 10000000)
 
