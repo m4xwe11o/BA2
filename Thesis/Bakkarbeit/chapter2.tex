@@ -46,7 +46,7 @@
 
 	Abbildung \ref{fig:xamarinarchitectur} zeigt wie die Xamarin.Forms Architektur aussieht. Dabei werden die Nativen Bibliotheken von Android \textit{Android SDK}, iOS \textit{iOS UIKit} und Windows Phone bzw. Windows Mobile \textit{UWP SDK} eingebunden. Das Einbinden dieser Bibliotheken stellt dem Framework eine Vielzahl an UI Elementen zur Darstellung von Inhalten zur Verfügung. In der derzeitigen Version von Xamarin.Forms sind es 17 unterschiedliche Elemente.
 
-	Jedoch ist zu beachten, dass der in Abbildung \ref{fig:xamarinarchitectur} in grau dargestellte Balken den Shared UI Code repräsentiert. Auf diesem aufbauend muss mit ungefähr 20\% Zielplattform spezifischen UI Design gerechnet werden \cite{book:Xamarin-Mobile-Application-Development}. Näheres dazu wird in den folgenden Abschnitten \ref{chap:xamarinformsdevelopment} sowie \ref{sec:xamarinformsmvvm} genauer erläutert.
+	Jedoch ist zu beachten, dass der in Abbildung \ref{fig:xamarinarchitectur} in grau dargestellte Balken den Shared UI Code repräsentiert. Auf diesem aufbauend muss mit ungefähr 20\% Zielplattform spezifischen UI Design gerechnet werden \cite{book:Xamarin-Mobile-Application-Development}. Näheres dazu wird in den folgenden Abschnitten \ref{sec:xamarinformsmvvm} sowie \ref{chap:xamarinformsdevelopment} genauer erläutert.
 
 	Wie Xamarin.Forms das rendern eines UI Elements durchführt ist in Abbildung \ref{fig:xamarinaformsrender} zu erkennen.
 
@@ -57,9 +57,9 @@
 		\label{fig:xamarinaformsrender}
 	\end{figure}
 
-	Das Element \textbf{$<$Button$>$} wird im Layout File welches in XAML (Extensible Application Markup Language) geschrieben wurde, eingebaut. Wird der Code nun kompiliert ist der \textit{ButtonRenderer} jener Plattformspezifische renderer der, dass Xamarin.Forms UI Element in Nativen Code umsetzt. Der \textbf{$<$Button$>$} unter Xamarin.Forms wird dadurch in einen \textbf{UIButton} für iOS oder einen \textbf{Android.Button} für Android übersetzt. Dieses rendern macht Xamarin.Form einzigartig da, im Vergleich mit anderen Cross-platform Technologien das Design für die Zielplattformen meist mittels HTML oder CSS vorgenommen werden muss, die UI Elemente in Native Design Elemente transformiert \cite{book:Xamarin-Mobile-Application-Development}.
+	Das Element \textbf{$<$Button$>$} wird im Layout File welches in XAML (Extensible Application Markup Language) geschrieben wurde, eingebaut. Wird der Code nun kompiliert ist der \textit{ButtonRenderer} jener Plattformspezifische renderer der, dass Xamarin.Forms UI Element in Nativen Code umsetzt. Der \textbf{$<$Button$>$} unter Xamarin.Forms wird dadurch in einen \textbf{UIButton} für iOS oder einen \textbf{Android.Button} für Android übersetzt. Dieses rendern macht Xamarin.Form einzigartig, da im Vergleich mit anderen Cross-platform Technologien das Design für die Zielplattformen meist mittels HTML oder CSS vorgenommen werden muss, um die UI Elemente in Native Design Elemente zu transformieren \cite{book:Xamarin-Mobile-Application-Development}.
 
-	\textbf{Rendering} ist der Arbeitsschritt einer Bilderstellung aus Objekten die, wie im Beispiel des Xamarin.Forms Frameworks, aus grafischen Objekten, welche in XAML definiert wurden\footnote{https://www.itwissen.info/Rendering-rendering.html}.
+	\textbf{Rendering} ist der Arbeitsschritt einer Bilderstellung aus Objekten die, wie im Beispiel des Xamarin.Forms Frameworks, aus grafischen Objekten bestehen, welche in XAML definiert wurden\footnote{https://www.itwissen.info/Rendering-rendering.html}.
 
 	\textbf{XAML} ist die Beschreibungssprache die Xamarin verwendet um die grafische Gestaltung des UI zu ermöglichen. Da XAML nur eine Beschreibungssprache ist kann es keinen Code enthalten. Alle Event Handler, wie zum Beispiel das Klicken eines Button, müssen in einem Code File definiert werden.
 
