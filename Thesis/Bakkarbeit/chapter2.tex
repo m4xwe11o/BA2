@@ -128,17 +128,27 @@
 	\end{figure}
 
 	Abbildung \ref{fig:xamarinformsarchitecture} beschreibt was durch Xamarin.Forms erzielt werden soll. Es baut auf den Bibliotheken für die Übersetzung in Nativen Android und iOS Code auf und ist das fehlende Bindeglied für den Prozess in Abbildung \ref{fig:xamarinaformsrender}. Die in dem XAML File festgelegten UI Elemente der PCL Klasse sind Teil der \textit{Xamarin.Forms.x} Bibliothek und werden für die Zielplattform übersetzt um anschließend wie in Abbildung \ref{fig:xamarinanativeandroidcompile} für Android und Abbildung \ref{fig:xamarinanativeioscompile} für iOS in Nativen Code der ausgeführt werden kann übersetzt.
+	\newpage
 
 
 \subsection{Model View View Model - Design Pattern}
 \label{sec:xamarinformsmvvm}
 
+\newpage
 \subsection{Projekterstellung mit Visual Studio for Mac}
 \label{sec:xamarincreateproject}
 
 	Für die Entwicklung der Cross-Platform Applikation wird \textbf{Visual Studio for Mac} verwendet im sowhl eine Android als auch iOS Version der Applikation entwickeln zu können. Die Projekterstellung unter Windows mit \textbf{Visual Studio 2015} oder \textbf{2017} verläuft analog im gleichen Schema.
 
-	
+	Zu beginn wird eine Leere Xamarin.Form Applikation erstellt. Hierbei muss entschieden werden wie der Cross-Platform Code geteilt werden soll:
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=1\textwidth]{images/Project-Setup-one.png}
+		\caption{Erstellung der Xamarin.Forms App - MCKB}
+		\label{fig:xamarinformsprojectsetup}
+	\end{figure}
+
 
 
 
