@@ -119,7 +119,7 @@
 
 	Für die Erstellung der iOS App wird gleich wie bei einer Android App der C\# Code in die IL kompiliert. Da nun keine Mono Runtime zur Verfügung steht wird ein Apple Compiler benötigt. Dieser Compiler ist der Ahead-of-Time (AOT) Compiler der nun die Übersetzung in Nativen Code übernimmt.
 
-	Verwendet man nun Xamarin.Forms welches eine weitere Ebene höher als Xamarin.Nativ arbeitet lässt sich der Kompilierungs Prozess folgendermaßen darstellen:
+	Xamarin.Forms stellt eine höhere Abstraktions Ebene für die Entwicklung einer Applikation dar. Der Kompilierungsprozess lässt sich folgendermaßen darstellen.
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=1\textwidth]{images/Xamarin-Forms.png}
@@ -127,9 +127,8 @@
 		\label{fig:xamarinformsarchitecture}
 	\end{figure}
 
-	Abbildung \ref{fig:xamarinformsarchitecture} beschreibt was durch Xamarin.Forms erzielt werden soll. Es baut auf den Bibliotheken für die Übersetzung in Nativen Android und iOS Code auf und ist das fehlende Bindeglied für den Prozess in Abbildung \ref{fig:xamarinaformsrender}. Die in dem XAML File festgelegten UI Elemente der PCL Klasse sind Teil der \textit{Xamarin.Forms.x} Bibliothek und werden für die Zielplattform übersetzt um anschließend wie in Abbildung \ref{fig:xamarinanativeandroidcompile} für Android und Abbildung \ref{fig:xamarinanativeioscompile} für iOS in Nativen Code der ausgeführt werden kann übersetzt.
+	Abbildung \ref{fig:xamarinformsarchitecture} beschreibt was durch Xamarin.Forms erzielt werden soll. Es baut auf den Bibliotheken für die Übersetzung in Nativen Android und iOS Code auf und ist das fehlende Bindeglied für den Prozess in Abbildung \ref{fig:xamarinaformsrender} (Rendering eines Button von Xamarin.Forms). Jener Part der für die Übersetzung des Codes zuständig ist, ist die \textit{Xamarin.Forms.Core} Bibliothek. Die in dem XAML File festgelegten UI Elemente der PCL Klasse sind Teil dieser \textit{Xamarin.Forms.Core} Bibliothek. Der Compiler übersetzt nun für die UI ELemente für Android, siehe Abbildung \ref{fig:xamarinanativeandroidcompile} und iOS, siehe Abbildung \ref{fig:xamarinanativeioscompile}, damit das Zielplattform spezifische Design dargestellt wird.
 	\newpage
-
 
 \subsection{Model View View Model - Design Pattern}
 \label{sec:xamarinformsmvvm}
@@ -140,7 +139,7 @@
 
 	Für die Entwicklung der Cross-Platform Applikation wird \textbf{Visual Studio for Mac} verwendet im sowohl eine Android als auch iOS Version der Applikation entwickeln zu können. Die Projekterstellung unter Windows mit \textbf{Visual Studio 2015} oder \textbf{2017} verläuft analog im gleichen Schema.
 
-	Zu beginn wird eine Leere Xamarin.Form Applikation erstellt. Hierbei muss entschieden werden wie der Cross-Platform Code geteilt werden soll:
+	Zu Beginn wird eine Standard Xamarin.Forms Applikation erstellt. Hierbei muss entschieden werden wie der Cross-Platform Code geteilt werden soll:
 
 	\begin{figure}[h!]
 		\centering
@@ -170,15 +169,15 @@
 
 	Der Unterschied bei der Festlegung auf welche Art und Weise der freigegebene Code für die Applikation verwaltete werden soll muss von Beginn an definiert werden. Eine Änderung im Nachhinein ist nicht mehr möglich.
 
-	\textbf{Portable Klassenbibliotheken (\textit{PCL})} erstellen wie schon erwähnt alle notwendigen Verweise um eine Cross-Plattform Applikation für Android und iOS zu erstellen. Dabei spielen die folgenden Verweise eine wichtige Rolle:
+	\textbf{Eine Portable Klassenbibliothek (\textit{PCL})} erstellt wie schon erwähnt alle notwendigen Verweise für eine Android und iOS Cross-Plattform Applikation. Dabei spielen die folgenden Verweise eine wichtige Rolle:
 	\begin{itemize}
 		\setlength\itemsep{0em}
-		\item \textit{Xamarin.Forms.Core}
-		\item \textit{Xamarin.Forms.Platform}
+		\item \textit{Xamarin.Forms.Core} definiert eine allgemeine API (Application Programming Interface) für Klassen wi zum Beispiel Buttons, Labels, ListViews uvm.
+		\item \textit{Xamarin.Forms.Platform} linkt die Plattform spezifischen Renderer von Android und iOS damit Elemente in der PCL Klasse in Plattform spezifischen Code übersetzt werden können.
 		\item \textit{Xamarin.Forms.Xaml}
 	\end{itemize}
 
-	\textbf{Freigegebene Bibliothek (\textit{Shared Library})} Test
+	\textbf{Die Freigegeben Bibliothek (\textit{Shared Library})} 
 
 
 
