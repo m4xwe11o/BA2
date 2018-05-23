@@ -130,8 +130,37 @@
 	Abbildung \ref{fig:xamarinformsarchitecture} beschreibt was durch Xamarin.Forms erzielt werden soll. Es baut auf den Bibliotheken für die Übersetzung in Nativen Android und iOS Code auf und ist das fehlende Bindeglied für den Prozess in Abbildung \ref{fig:xamarinaformsrender} (Rendering eines Button von Xamarin.Forms). Jener Part der für die Übersetzung des Codes zuständig ist, ist die \textit{Xamarin.Forms.Core} Bibliothek. Die in dem XAML File festgelegten UI Elemente der PCL Klasse sind Teil dieser \textit{Xamarin.Forms.Core} Bibliothek. Der Compiler übersetzt nun für die UI ELemente für Android, siehe Abbildung \ref{fig:xamarinanativeandroidcompile} und iOS, siehe Abbildung \ref{fig:xamarinanativeioscompile}, damit das Zielplattform spezifische Design dargestellt wird.
 	\newpage
 
-\subsection{Model View View Model - Design Pattern}
+\subsection{Model View ViewModel - Design/Architectural Pattern}
 \label{sec:xamarinformsmvvm}
+	
+	\textbf{MVVM} ist eine Variante des \textit{Model View Controller Pattern} und dient dazu eine verbesserte Testbarkeit (Unit-Testing) durch Trennung der Benutzerschnittstelle und der sich dahinter befindlichen Logik der Benutzerschnittstelle zu ermöglichen. In einigen Büchern zur Entwicklung mit Xamarin wird auf das MVVM Pattern verwiesen da es eine Architektur Struktur für User Interfaces implementiert\cite{book:Xamarin.Forms-Essentials:}. Dies ist vor allem für komplexe Applikationen von Nutzen da durch eine verbesserte Testbarkeit von Modulen die Benutzerfreundlichkeit erheblich gesteigert werden kann.
+
+	\textbf{Model:} Repräsentiert ein Business Objekt das die Daten und das Verhalten der Applikation kapselt. Für die MCKB Applikation wären dies:
+	\begin{itemize}
+		\setlength\itemsep{0em}
+		\item Artikel
+		\item Anwender
+		\item Kommentare zu Artikeln
+	\end{itemize}
+
+	\textbf{View:} Ist das was der Anwender sieht wenn er die Applikation verwendet. Artikel werden in \textit{Pages\footnote{https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/controls/pages}} dargestellt. Kommentare, welche Teil einer Artikel Page sind, die es zu Artikeln gibt werden angezeigt und können hinzugefügt werden. Wie der View definiert wird hängt von der Design Spezifizierung der Page und dessen Layout ab und kann Beispielsweise eines folgender Layouts sein:
+	\begin{itemize}
+		\setlength\itemsep{0em}
+		\item Content Page
+		\item Navigation Page
+		\item Tabbed Page
+		\item Carousel Page
+		\item ...
+	\end{itemize}
+	Innerhalb einer Page kann ein Layout definiert werden um Daten nach einem Schema darzustellen. Folgende \textit{Layouts\footnote{https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/controls/layouts}} kann eine Page enthalten:
+	\begin{itemize}
+		\setlength\itemsep{0em}
+		\item Content View
+		\item Scroll View
+		\item Stack, Absolute, Relative oder Grid Layout
+	\end{itemize}
+
+	\textbf{ViewModel:} Dies ist ein Model welches für einen View entworfen wurde. Es ist eine Klasse mit Eigenschaften welche den Zustand eines View's sowie Methoden und die Logik eines View's implementiert.
 
 \newpage
 \subsection{Projekterstellung mit Visual Studio for Mac}
@@ -172,17 +201,39 @@
 	\textbf{Eine Portable Klassenbibliothek (\textit{PCL})} erstellt wie schon erwähnt alle notwendigen Verweise für eine Android und iOS Cross-Plattform Applikation. Dabei spielen die folgenden Verweise eine wichtige Rolle:
 	\begin{itemize}
 		\setlength\itemsep{0em}
-		\item \textit{Xamarin.Forms.Core} definiert eine allgemeine API (Application Programming Interface) für Klassen wi zum Beispiel Buttons, Labels, ListViews uvm.
+		\item \textit{Xamarin.Forms.Core} definiert eine allgemeine API (Application Programming Interface) für Klassen wie zum Beispiel Buttons, Labels, ListViews uvm.
 		\item \textit{Xamarin.Forms.Platform} linkt die Plattform spezifischen Renderer von Android und iOS damit Elemente in der PCL Klasse in Plattform spezifischen Code übersetzt werden können.
 		\item \textit{Xamarin.Forms.Xaml}
 	\end{itemize}
+	Der Code in einer PCL wird zur Laufzeit zu einer \textit{dynamically-linked library (DLL)} für die Zielplattform Referenzen zusammengefasst. Ist es für die Cross-platform Applikation notwendig Nativen Code auszuführen, kann dies durch bestimmte \textbf{IF Abfragen} in der PCL Klasse umgesetzt werden.\\
 
-	\textbf{Die Freigegeben Bibliothek (\textit{Shared Library})} 
+	\begin{lstlisting}[caption={Plattform spezifischen Code in PCL ausführen},label={lst:xamarinpcl},captionpos=b,style=JAVA-Own]
+...
+if (Device.OS == TargetPlatform.iOS){
+	//Run iOS Code here..
+}
+...
+else if (Device.OS == Target.Platform.Android){
+	//Run Android Code here...
+}
+...
+	\end{lstlisting}
 
+	\textbf{Die Freigegebene Bibliothek (\textit{Shared Library (SL)/Shared Asset (SA)})\footnote{https://docs.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing}} stellt den einfachsten Ansatz für \textit{Code Sharing} dar. Für die Zielplattform wird nur jener Code dementsprechend kompiliert wenn es die dafür notwendigen Präprozessor Anweisungen enthält. Es wird somit der gesamte Inhalt des Projektes in jeden referenzierenden Teil des Projektes kopiert, als wäre es ein Teil davon.\\
 
+	\begin{lstlisting}[caption={Plattform spezifischen Code in SA/SL ausführen},label={lst:xamarinslsa},captionpos=b,style=JAVA-Own]
+#if __iOS__
+	//Run iOS Code here..
+...
+#elif __ANDROID__
+	//Run Android Code here...
+...
+#endif
+	\end{lstlisting}
 
+	Codeabschnitt \ref{lst:xamarinslsa} veranschaulicht diese Präprozessor Anweisungen die in den C\# Klassen den Plattformspezifischen Code zu finden sind.
 
-
+	Wird eine PCL als Code Sharing Basis verwendet. wird der Zugriff auf mögliche \textit{.NET Klassen} auf eine kleinere Untermenge beschränkt, jedoch kann dieses Problem durch Implementierung einer Schnittstelle, da dadurch auf die Ursprüngliche Menge an .NET Klassen zurückgegriffen werden kann.
 
 
 
