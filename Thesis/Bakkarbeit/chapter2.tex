@@ -161,6 +161,41 @@
 	\end{itemize}
 
 	\textbf{ViewModel:} Dies ist ein Model welches für einen View entworfen wurde. Es ist eine Klasse mit Eigenschaften welche den Zustand eines View's sowie Methoden und die Logik eines View's implementiert.
+	\newpage
+	Ein ViewModel für den View in Codeabschnitt \ref{lst:xamarinmvvmview}, welches eine \textit{Page} mit einem \textit{Stacklayout (horizontale Anordnung von UI Elementen)}, einem \textbf{Button} und einen \textbf{ListView} mit \textbf{Items} enthält, hätte beispielsweise ein ViewModel, welches in Codeabschnitt \ref{lst:xamarinmvvmviewmodel} abgebildet ist, um Elemente dem ListView hinzuzufügen:\\
+
+	\begin{lstlisting}[caption={Beispiel View},label={lst:xamarinmvvmview},captionpos=b,style=JAVA-Own]
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MCKB" x:Class="MCKB.MCKBPage">
+    <StackLayout>
+        <Button Text="Add"/>
+        <ListView x:Name="ArticleView">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <TextCell Text="{Binding ArtcleName}" />
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout>
+</ContentPage>
+	\end{lstlisting}
+
+	\begin{lstlisting}[caption={Beispiel ViewModel für Codeabschnitt \ref{lst:xamarinmvvmview} (View)},label={lst:xamarinmvvmviewmodel},captionpos=b,style=JAVA-Own]
+class ViewModel{
+	ObservableCollection Item;
+	void Add(){
+		//Implement function here
+	}
+}
+	\end{lstlisting}
+
+	Auf den Ersten Blick sieht das ViewModel in Codeabschnitt \ref{lst:xamarinmvvmviewmodel} aus wie eine code-behind Implementierung (der Button wird mit einem Event-Handler verlinkt um die Add Funktion aufzurufen) für das XAML des View in Codeabschnitt \ref{lst:xamarinmvvmview} aus. Jedoch ist ein ViewModel keine code-behind Implementierung.
+
+	\textbf{Code-behind} ist fest an Xamarin gekoppelt. Dies führt dazu, dass es schwer ist für eine solche code-behind Klasse einen Unit-Test zu implementieren. Um den Code in der code-behind Klasse dennoch testen zu können wird dieser Code in die ViewModel Klasse geschrieben und abgeändert um eine minimale Kopplung mit Xamarin zu haben. Der Code ist nun ein \textbf{Plain Old CLR Object (POCO)} Objekt für das Unit-Tests erzeugt werden können.
+
+	\textbf{Unit/Model Tests} sind Software Tests welche funktionale Einzelteile von Software auf deren korrekte Funktionalität testen. Die für diese Arbeit geschriebene Cross-platform Applikation wird keine Unit/Modul Test implementieren.
 
 \newpage
 \subsection{Projekterstellung mit Visual Studio for Mac}
