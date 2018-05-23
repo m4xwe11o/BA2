@@ -146,29 +146,39 @@
 		\centering
 		\includegraphics[width=1\textwidth]{images/Project-Setup-one.png}
 		\caption{Erstellung der Xamarin.Forms App - MCKB}
-		\label{fig:lol}
+		\label{fig:xamarinprojectstart}
 	\end{figure}
 
-	In Abbildung \ref{fig:lol} ist zu erkennen das schon bei der Erstellung der Applikation festgelegt werden muss auf welche Art und Weise der \textit{Shared Code}, der CP-App implementiert werden soll. In der folgenden Abbildung \ref{fig:lol2}
+	In Abbildung \ref{fig:xamarinprojectstart} ist zu erkennen das schon bei der Erstellung der Applikation festgelegt werden muss auf welche Art und Weise der \textit{Shared Code}, der CP-App implementiert werden soll.
 
+	In Abbildung \ref{fig:xamarinsharedcode} ist zu erkennen wie sich \textbf{Portable Class Library} von \textbf{Shared Library} unterscheiden. Wird PCL für den freigegeben Code verwendet, siehe Abbildung \ref{fig:xamarinsharedcode} links, so erstellt die IDE alle notwendigen Verweise und verlinkt diese. Anders ist dies bei einem Shared Library (SL) Projekt, bei welchem der Entwickler selbst die notwendigen Verweise zu weiteren dependencies einbinden muss.
+
+	\newpage
 	\begin{figure}[h!]
 		\centering
 		\begin{subfigure}
 			\centering
-			\includegraphics[width=.4\textwidth]{images/Project-Setup-one.png}
+			\includegraphics[width=.3\textwidth]{images/xamarin-shared-library.png}
 		\end{subfigure}
 		\begin{subfigure}
 			\centering
-			\includegraphics[width=.4\textwidth]{images/Project-Setup-one.png}
+			\includegraphics[width=.3\textwidth]{images/xamarin-portable-class.png}
 		\end{subfigure}
-		\caption{Erstellung der Xamarin.Forms App - MCKB}
-		\label{fig:lol2}
+		\caption{Unterschied Shared Code - Xamarin.Forms App - MCKB}
+		\label{fig:xamarinsharedcode}
 	\end{figure}
 
+	Der Unterschied bei der Festlegung auf welche Art und Weise der freigegebene Code für die Applikation verwaltete werden soll muss von Beginn an definiert werden. Eine Änderung im Nachhinein ist nicht mehr möglich.
 
-	\textbf{Portable Klassenbibliothek (\textit{PCL})}
+	\textbf{Portable Klassenbibliotheken (\textit{PCL})} erstellen wie schon erwähnt alle notwendigen Verweise um eine Cross-Plattform Applikation für Android und iOS zu erstellen. Dabei spielen die folgenden Verweise eine wichtige Rolle:
+	\begin{itemize}
+		\setlength\itemsep{0em}
+		\item \textit{Xamarin.Forms.Core}
+		\item \textit{Xamarin.Forms.Platform}
+		\item \textit{Xamarin.Forms.Xaml}
+	\end{itemize}
 
-	\textbf{Freigegebene Bibliothek (\textit{Shared Library})}
+	\textbf{Freigegebene Bibliothek (\textit{Shared Library})} Test
 
 
 
