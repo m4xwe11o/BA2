@@ -10,9 +10,22 @@
 %  Changed :  30 Oct 2008
 %  !TEX root = ./thesis.tex
 %----------------------------------------------------------------
-
+\renewcommand*{\lstlistlistingname}{Codeverzeichnis}
 \chapter{Anhang/Ergänzende Information}
 \label{chap:app}
+
+
+\begin{figure}[h!]
+		\centering
+		\begin{subfigure}
+			\centering
+			\includegraphics[width=.3\textwidth]{images/stm32kb-loginscreen.png}
+		\end{subfigure}
+		
+		\label{fig:nope}
+	\end{figure}
+
+% section zusätzliche_screenshots (end)
 
 EIGENER ANHANG
 
@@ -28,6 +41,9 @@ Hier werden die Entwürfe zur Design der App gelistet sein.b
 \clearpage
 
 % --- List of Tables -----------------------------------------------------
+
+\addcontentsline{toc}{section}{Codeverzeichnis}
+\lstlistoflistings
 
 \addcontentsline{toc}{section}{Tabellenverzeichnis}
 \listoftables
