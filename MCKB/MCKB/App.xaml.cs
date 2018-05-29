@@ -8,7 +8,9 @@ namespace MCKB
         {
             InitializeComponent();
 
-            MainPage = new MCKBPage();
+            //MainPage = new MCKBPage();
+            MainPage = new MainPage();
+            //MainPage = new ArticlePage();
         }
 
         protected override void OnStart()

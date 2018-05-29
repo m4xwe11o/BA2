@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="MCKB.MainPage">
+    <!--Tabbed Page one is for the Artilces -->
+    <ContentPage Title="Read" Icon="">
+        <ListView x:Name="articleListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Title}" Detail="{Binding Description}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage>
+
+    <!--Tabbed Page two is for the registration of an user -->
+    <ContentPage Title="Register" Icon="">
+        <Button Text="REGISTER PAGE"/>
+    </ContentPage>
+
+    <!--Tabbed Page three is for the login -->
+    <ContentPage Title="Login" Icon="">
+        <Button Text="LOGIN PAGE"/>
+    </ContentPage>
+</TabbedPage>

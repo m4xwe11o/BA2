@@ -186,17 +186,99 @@
 		\label{tab:artikelread}
 	\end{table}
 
-	\textbf{Nicht funktionale Anforderungen:}
+	\textbf{Nicht funktionale Anforderungen } sind Anforderungen an die Qualität in der die Funktionalität zu erbringen ist. Folgende nicht funktionale Anforderungen wurden für die MCKB Applikation definiert:
+	\begin{enumerate}
+		\setlength\itemsep{0em}
+		\item Benutzeroberfläche
+		\begin{itemize}
+			\setlength\itemsep{0em}
+			\item Flache Menüebenen bei Artikelauswahl
+			\item Einfache Menüführung
+			\item Harmonische Farben
+		\end{itemize}
+		\item Leistungsanforderungen
+		\begin{itemize}
+			\item Server Time-Out von maximal 30 Sekunden
+			\item Benutzernachrichten i.e. \textit{Toast} oder \textit{UI Alerts} sollen kurz und informativ sein
+		\end{itemize}
+		\item Entwicklung
+		\begin{itemize}
+			\item Visual Studio for Mac oder Visual Studio 2015
+			\item Android ab Version 7.0
+			\item iOS ab Version 11.3
+		\end{itemize}
+	\end{enumerate}
 
+	\newpage
 % \subsection{Funktionale Anforderungen}
 % \label{sec:mckbfunkcspecs}
 	
 % \subsection{Nicht Funktionale Anforderungen}
 % \label{sec:mckbnonfuncspecs}
 
-\section{Unterschiede zur Xamarin.Native Version}
+\section{Anpassungen an die Serverumgebung im Vergleich zur Xamarin.Native Version}
 \label{sec:mckbspecs}
 
+	Für die Erste CP-APP konnte über die Xamarin Komponente \textit{MySQL Plugin} über Port 3306 \textit{MySQL} auf die Datenbank zugegriffen werden\cite{Maximilian2017}. Auf Kosten der Sicherheit war dies eine einfache Lösung um Daten aus der Datenbank in die Applikation zu laden. Um diesen Zugriff umzusetzen musste der MySQL Port auf dem Server freigegeben werden, ein \textit{Port-Forwarding} auf dem Router und ein \textit{NAT} auf der FW eingerichtet werden.
+
+	Mit 18. Mai 2018 wurde der Komponenten Store für Xamarin abgeschaltet\footnote{https://docs.microsoft.com/en-us/xamarin/cross-platform/troubleshooting/component-nuget?tabs=vswin} um nur noch den \textbf{NuGET} Store für Plugins zu verwenden. Dies hatte zur Folge das, dass hinzufügen des \textit{MySQL Plugins} in der PCL nicht mehr möglich war. Zwar kann man das Plugin, für den direkten Datenbank Zugriff, dem Android und iOS Projekt einzeln hinzufügen, jedoch muss dann sowohl für das Android als auch das iOS Projekt die Geschäftslogik für den Zugriff auf die Datenbank zweimal implementiert werden.
+
+	Infolgedessen folgt die MCKB App den Vorgaben von Microsoft und verwendet eine \textit{RESTFul API}\footnote{https://docs.microsoft.com/en-us/xamarin/cross-platform/data-cloud/web-services/} (REST - Representational State Transfer) um auf die Daten aus der Datenbank in die App zu laden. Um diesen Zugriff auf dem Webserver über eine Webservice API zu ermöglichen musste die genannte \textit{RESTFul API} implementiert werden. Die Kommunikation mit dem Server ist in Abbildung \ref{fig:restfulcommunication} dargestellt.
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=1\textwidth]{images/restfull-communication.png}
+		\caption{Client - Server Kommunikation neu}
+		\label{fig:restfulcommunication}
+	\end{figure}
+
+	Die API baut auf \textit{Node JS} auf und benötigt folgende Dateien:
+	\begin{lstlisting}[caption={Webservice Aufbau},label={lst:restfulapi},captionpos=b,style=JAVA-Own]
+server@BA-SERVER:~/BA-RESTFUL-API$ ls -la
+drwxrwxr-x  8 server server 4096 Mai 29 13:04 .git
+drwxrwxr-x 55 server server 4096 Mai 29 12:55 node_modules
+-rw-rw-r--  1 server server  249 Mai 29 12:55 package.json
+-rw-rw-r--  1 server server 3899 Mai 29 13:04 REST.js
+-rw-rw-r--  1 server server 1328 Mai 29 00:44 Server.js
+	\end{lstlisting}
+	
+	Die Datei \textit{Server.js}, in Codeabschnitt \ref{lst:restfulapi} Zeile sechs, startet den Webserver und die Schnittstelle \textit{/api} um GET oder POST Requests anzunehmen. In der Datei \textit{REST.js} sind die Schnittstellen zum Aufrufen von Daten konfiguriert. Der Ordner \textit{node\_modules} beinhaltet Pakete die für das Webservice, beispielsweise \textit{mysql}, \textit{md5} (erzeugt Hashwerte für Passwörter) oder \textit{moment} (erzeugt einen Timestamp), benötigt werden.
+
+	Folgende Schnittstellen sind für die APP definiert und implementiert\footnote{Einstiegspunkt ist http://m4xwe11o.ddns.net:8000/api}:
+	\begin{itemize}
+		\setlength\itemsep{0em}
+		\item GET \textbf{/administrators:} Liefert alle in der Datenbank gespeicherten Administratoren
+		\item GET \textbf{/administrators/:administrator\_id:} Liefert einen bestimmten Administrator anhand dessen ID zurück
+		\item GET \textbf{/articles:} Liefert alle in der Datenbank gespeicherten Artikel
+		\item GET \textbf{/articles/:article\_id:} Liefert einen bestimmten Artikel anhand dessen ID zurück
+		\item GET \textbf{/article/count:} Liefert die Anzahl an Artikeln zurück
+		\item GET \textbf{/users:} Liefert alle in der Datenbank gespeicherten Benutzer
+		\item POST \textbf{/users:} ermöglicht das hinzufügen von neuen Benutzern zur Datenbank
+	\end{itemize}
+
+	Die Server Antwort wird bei einem der API Aufrufe als \textit{JSON (JavaScript Object Notation)} zurückgeliefert.
+	\begin{lstlisting}[caption={Serverantwort - \textbf{/article/count:} API Call },label={lst:restfulapicallcount},captionpos=b,style=JAVA-Own]
+{
+    "Error": false,
+    "Message": "Success",
+    "Articles": 27
+}
+	\end{lstlisting}
+
+	Um einen neuen Benutzer in der Datenbank anzulegen wird die URL \textit{http://.../api/users} aufgerufen und die notwendigen Parameter übergeben. 
+
+	\begin{lstlisting}[caption={Anlegen eines neuen Benutzers durch URL Encoding},label={lst:restfulapicallnewuser},captionpos=b,style=JAVA-Own]
+POST /api/users HTTP/1.1
+Host: m4xwe11o.ddns.net:8000
+Content-Type: application/x-www-form-urlencoded
+Cache-Control: no-cache
+Postman-Token: b544e89d-a5e0-c3ba-db6a-5efb0122e27a
+
+surname=Thomas&firstname=Pessl&address=Musterstrasse+18%2F2%2C+1110+Wien
+&email=maximilian%40pessl.at&password=supersafe&confpassword=supersafe
+	\end{lstlisting}
+
+	In Codeabschnitt \ref{lst:restfulapicallnewuser} wird ein HTTP POST auf die URL \textbf{/api/users} aufgerufen und in Zeile acht alle notwendigen Parameter als Teil der URL übergeben. Die Geschäftslogik für das Anlegen eines neuen Users ist in Abschnitt \ref{chap:app} in Abbildung \ref{fig:serversidecode} zu finden.
 
 
 
