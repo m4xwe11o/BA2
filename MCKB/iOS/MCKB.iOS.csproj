@@ -126,17 +126,17 @@
     <Compile Include="AppDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icons8-password.png" />
-    <BundleResource Include="Resources\icons8-password%402x.png" />
-    <BundleResource Include="Resources\icons8-password%403x.png" />
-    <BundleResource Include="Resources\icons8-student-registration-filled.png" />
-    <BundleResource Include="Resources\icons8-student-registration-filled%402x.png" />
-    <BundleResource Include="Resources\icons8-student-registration-filled%403x.png" />
+    <BundleResource Include="Resources\icons8password.png" />
+    <BundleResource Include="Resources\icons8password%402x.png" />
+    <BundleResource Include="Resources\icons8password%403x.png" />
+    <BundleResource Include="Resources\icons8studentregistrationfilled.png" />
+    <BundleResource Include="Resources\icons8studentregistrationfilled%402x.png" />
+    <BundleResource Include="Resources\icons8studentregistrationfilled%403x.png" />
     <BundleResource Include="Resources\icons8-microchip-80.png" />
     <BundleResource Include="Resources\icons8-microchip-120.png" />
-    <BundleResource Include="Resources\open-book.png" />
-    <BundleResource Include="Resources\open-book%402x.png" />
-    <BundleResource Include="Resources\open-book%403x.png" />
+    <BundleResource Include="Resources\openbook.png" />
+    <BundleResource Include="Resources\openbook%402x.png" />
+    <BundleResource Include="Resources\openbook%403x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.5.0.121934\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.0.121934\build\netstandard1.0\Xamarin.Forms.targets')" />

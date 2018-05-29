@@ -1,27 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            x:Class="MCKB.MainPage">
+            x:Class="MCKB.MainPage"
+            Padding="0,20,0,0">
+    
     <!--Tabbed Page one is for the Artilces -->
-    <ContentPage Title="Read" Icon="open-book.png">
-        <!--<ListView x:Name="articleListView"
-              IsGroupingEnabled="true"
-              GroupDisplayBinding="{Binding Title}"
-              GroupShortNameBinding="{Binding ShortTitle}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell
-                    Text="{Binding Title}"
-                    Detail="{Binding Description}"/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>-->
-
-    <ListView x:Name="articleListView"
+    <ContentPage Title="Read" Icon="openbook.png" Padding="0,20,0,0">
+       <ListView x:Name="articleListView"
               IsGroupingEnabled="true"
               GroupDisplayBinding="{Binding Title}"
               GroupShortNameBinding="{Binding ShortTitle}"
-              ><!---->
+              >
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ImageCell
@@ -34,12 +23,26 @@
     </ContentPage>
 
     <!--Tabbed Page two is for the registration of an user -->
-    <ContentPage Title="Register" Icon="icons8-student-registration-filled.png">
+    <ContentPage Title="Register" Icon="icons8studentregistrationfilled.png" Padding="0,20,0,0">
         <Button Text="REGISTER PAGE"/>
     </ContentPage>
 
     <!--Tabbed Page three is for the login -->
-    <ContentPage Title="Login" Icon="icons8-password.png">
+    <ContentPage Title="Login" Icon="icons8password.png" Padding="0,20,0,0">
         <Button Text="LOGIN PAGE"/>
     </ContentPage>
 </TabbedPage>
+
+<!-- Maybe needed later... -->
+ <!--<ListView x:Name="articleListView"
+              IsGroupingEnabled="true"
+              GroupDisplayBinding="{Binding Title}"
+              GroupShortNameBinding="{Binding ShortTitle}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell
+                    Text="{Binding Title}"
+                    Detail="{Binding Description}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>-->

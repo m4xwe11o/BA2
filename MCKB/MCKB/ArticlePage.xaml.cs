@@ -27,11 +27,13 @@ namespace MCKB
             var groupF4 = new ArticleGroup("F4", "F4");
 
             var content = await _client.GetStringAsync(Url);
-            var articles =  JsonConvert.DeserializeObject<List<Article>>(content);
+            var articles = JsonConvert.DeserializeObject<List<Article>>(content);
             _articles = new ObservableCollection<Article>(articles);
 
-            for (int i = 0; i < _articles.Count; i++){
-                if(_articles[i].Title.Contains("F1") && ( _articles[i].Title.Contains("ADC") || _articles[i].Title.Contains("CAN") || _articles[i].Title.Contains("SPI") || _articles[i].Title.Contains("UART")) ){
+            for (int i = 0; i < _articles.Count; i++)
+            {
+                if (_articles[i].Title.Contains("F1") && ( _articles[i].Title.Contains("ADC") || _articles[i].Title.Contains("CAN") || _articles[i].Title.Contains("SPI") || _articles[i].Title.Contains("UART")) )
+                {
                     System.Diagnostics.Debug.WriteLine("Adding " + _articles[i].Title + " to Article Group F1");
                     groupF1.Add(
                         new Article { Title = _articles[i].Title, Description = _articles[i].Description, Articletext = _articles[i].Articletext, ImageUrl="https://png.icons8.com/ios/50/000000/electronics-filled"}

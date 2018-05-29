@@ -32,9 +32,8 @@ namespace MCKB
 
             for (int i = 0; i < _articles.Count; i++)
             {
-                if (_articles[i].Title.Contains("F1") && (_articles[i].Title.Contains("ADC") || _articles[i].Title.Contains("CAN") || _articles[i].Title.Contains("SPI") || _articles[i].Title.Contains("UART")))
+                if (_articles[i].Title.Contains("F1") && ( _articles[i].Title.Contains("ADC") || _articles[i].Title.Contains("CAN") || _articles[i].Title.Contains("SPI") || _articles[i].Title.Contains("UART")))
                 {
-                    System.Diagnostics.Debug.WriteLine("Adding " + _articles[i].Title + " to Article Group F1");
                     groupF1.Add(
                         new Article { Title = _articles[i].Title, Description = _articles[i].Description, Articletext = _articles[i].Articletext, ImageUrl = "https://png.icons8.com/ios/50/000000/electronics-filled" }
                     );
@@ -43,7 +42,6 @@ namespace MCKB
 
                 if (_articles[i].Title.Contains("F3") && (_articles[i].Title.Contains("ADC") || _articles[i].Title.Contains("CAN") || _articles[i].Title.Contains("SPI") || _articles[i].Title.Contains("UART")))
                 {
-                    System.Diagnostics.Debug.WriteLine("Adding " + _articles[i].Title + " to Article Group F1");
                     groupF3.Add(
                         new Article { Title = _articles[i].Title, Description = _articles[i].Description, Articletext = _articles[i].Articletext, ImageUrl = "https://png.icons8.com/color/50/000000/electronics" }
                     );
@@ -52,7 +50,6 @@ namespace MCKB
 
                 if (_articles[i].Title.Contains("F4") && (_articles[i].Title.Contains("ADC") || _articles[i].Title.Contains("CAN") || _articles[i].Title.Contains("SPI") || _articles[i].Title.Contains("UART")))
                 {
-                    System.Diagnostics.Debug.WriteLine("Adding " + _articles[i].Title + " to Article Group F1");
                     groupF4.Add(
                         new Article { Title = _articles[i].Title, Description = _articles[i].Description, Articletext = _articles[i].Articletext, ImageUrl = "https://png.icons8.com/ultraviolet/50/000000/electronics" }
                     );
