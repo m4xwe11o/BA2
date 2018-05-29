@@ -6,6 +6,7 @@ namespace MCKB
     {
         public App()
         {
+            System.Diagnostics.Debug.WriteLine("Calling App");
             InitializeComponent();
 
             //MainPage = new MCKBPage();
@@ -15,16 +16,19 @@ namespace MCKB
 
         protected override void OnStart()
         {
+            System.Diagnostics.Debug.WriteLine("Calling OnStart");
             // Handle when your app starts
         }
 
         protected override void OnSleep()
         {
+            System.Diagnostics.Debug.WriteLine("Calling OnSleep");
             // Handle when your app sleeps
         }
 
         protected override void OnResume()
         {
+            System.Diagnostics.Debug.WriteLine("Calling OnResume");
             // Handle when your app resumes
         }
     }

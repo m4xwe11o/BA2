@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MCKB.ArticlePage">
-    <ListView x:Name="articleListView">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MCKB.ArticlePage"
+             Padding="0,20, 0,0">
+    <ListView x:Name="articleListView"
+              IsGroupingEnabled="true"
+              GroupDisplayBinding="{Binding Title}"
+              GroupShortNameBinding="{Binding ShortTitle}"
+              ><!---->
         <ListView.ItemTemplate>
             <DataTemplate>
-                <TextCell Text="{Binding Title}" Detail="{Binding Description}"/>
+                <ImageCell
+                Text="{Binding Title}"
+                Detail="{Binding Description}"
+                ImageSource="{Binding ImageUrl}"/>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>

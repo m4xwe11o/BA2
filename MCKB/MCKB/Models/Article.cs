@@ -6,5 +6,6 @@ namespace MCKB
         public string Title { get; set; }
         public string Description { get; set; }
         public string Articletext { get; set; }
+        public string ImageUrl { get; set; }
     }
 }
