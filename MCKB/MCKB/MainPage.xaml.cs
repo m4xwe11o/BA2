@@ -20,14 +20,22 @@ namespace MCKB
 
         protected override async void OnAppearing()
         {
-
+            var time = DateTime.Now.Millisecond.ToString();
+            var time3 = DateTime.UtcNow.ToString();
             IList<ArticleGroup> group = new List<ArticleGroup>();
             var groupF1 = new ArticleGroup("F1", "F1");
             var groupF3 = new ArticleGroup("F3", "F3");
             var groupF4 = new ArticleGroup("F4", "F4");
 
+            System.Diagnostics.Debug.WriteLine(time3 + " Sending Request");
+
             var content = await _client.GetStringAsync(Url);
             var articles = JsonConvert.DeserializeObject<List<Article>>(content);
+
+            var time2 = DateTime.Now.Millisecond.ToString();
+            var time4 = DateTime.UtcNow.ToString();
+            System.Diagnostics.Debug.WriteLine(time4 + " Received Request");
+
             _articles = new ObservableCollection<Article>(articles);
 
             for (int i = 0; i < _articles.Count; i++)

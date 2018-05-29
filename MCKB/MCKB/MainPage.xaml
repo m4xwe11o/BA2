@@ -2,9 +2,14 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             x:Class="MCKB.MainPage">
-    
     <!--Tabbed Page one is for the Artilces -->
-    <ContentPage Title="Read" Icon="openbook.png" Padding="0,20,0,0">
+    <ContentPage Title="Read" Icon="openbook.png">
+        <ContentPage.Padding>
+            <OnPlatform x:TypeArguments="Thickness"
+                iOS="0,20,0,0"
+                Android="0,0,0,0">
+            </OnPlatform>
+        </ContentPage.Padding>
        <ListView x:Name="articleListView"
               IsGroupingEnabled="true"
               GroupDisplayBinding="{Binding Title}"
@@ -12,22 +17,35 @@
               >
         <ListView.ItemTemplate>
             <DataTemplate>
-                <ImageCell
+                <ImageCell 
                 Text="{Binding Title}"
+                TextColor="Black"
                 Detail="{Binding Description}"
-                ImageSource="{Binding ImageUrl}"/>
+                ImageSource="{Binding ImageUrl}"></ImageCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
     </ContentPage>
 
     <!--Tabbed Page two is for the registration of an user -->
-    <ContentPage Title="Register" Icon="icons8studentregistrationfilled.png" Padding="0,20,0,0">
+    <ContentPage Title="Register" Icon="icons8studentregistrationfilled.png">
+        <ContentPage.Padding>
+            <OnPlatform x:TypeArguments="Thickness"
+                iOS="0,20,0,0"
+                Android="0,0,0,0">
+            </OnPlatform>
+        </ContentPage.Padding>
         <Button Text="REGISTER PAGE"/>
     </ContentPage>
 
     <!--Tabbed Page three is for the login -->
-    <ContentPage Title="Login" Icon="icons8password.png" Padding="0,20,0,0">
+    <ContentPage Title="Login" Icon="icons8password.png">
+        <ContentPage.Padding>
+            <OnPlatform x:TypeArguments="Thickness"
+                iOS="0,20,0,0"
+                Android="0,0,0,0">
+            </OnPlatform>
+        </ContentPage.Padding>
         <Button Text="LOGIN PAGE"/>
     </ContentPage>
 </TabbedPage>

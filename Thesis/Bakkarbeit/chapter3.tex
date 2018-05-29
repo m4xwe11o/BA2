@@ -56,28 +56,46 @@
 		\label{fig:stm32kbApp}
 	\end{figure}
 
-	Für die Entwicklung beider CP-Apps wurde eine andere Art der Menüführung herangezogen. Statt einer Navigation über Buttons und Pfeile sind die funktionalen Anforderungen in Form von Tabs umgesetzt worden. Ein Tabbed Layout steht sowohl unter Xamarin.Native als auch Xamarin.Forms zur Verfügung und wird von dem jeweiligen Zielbetriebssystem Renderer so gerendert das es dem Typischen Design Merkmalen entspricht.
+	Für die Entwicklung beider CP-Apps wurde eine andere Art der Menüführung herangezogen. Statt einer Navigation über Buttons und Pfeile sind die funktionalen Anforderungen in Form von \textit{Tabs (Registerkarten)} umgesetzt worden. Ein Tabbed Layout steht sowohl unter Xamarin.Native als auch Xamarin.Forms zur Verfügung und wird von dem jeweiligen Zielbetriebssystem Renderer so gerendert das es dem Typischen Design Merkmalen entspricht.
 
 	\newpage
-	In Abbildung \ref{fig:stm32cpApp} ist das veränderte Menü durch Tabs ersichtlich. Dem Anwender wird durch ein übersichtlicheres Design die Handhabung der Applikation vereinfacht.
+	In Abbildung \ref{fig:stm32cpApp} ist das veränderte Menü durch \textit{Tabs} ersichtlich. Dem Anwender wird durch ein übersichtlicheres Design die Handhabung der Applikation vereinfacht.
 
 	\begin{figure}[h!]
 		\centering
 		\begin{subfigure}
 			\centering
-			\includegraphics[width=.3\textwidth]{images/STM32CP_Droid-final.png}
+			\includegraphics[width=.4\textwidth]{images/STM32CP_Droid-final.png}
 		\end{subfigure}
 		\begin{subfigure}
 			\centering
-			\includegraphics[width=.3\textwidth]{images/STM32CP_iOS-final.png}
+			\includegraphics[width=.4\textwidth]{images/STM32CP_iOS-final.png}
 		\end{subfigure}
 		\caption{Design der STM32CP App}
 		\label{fig:stm32cpApp}
 	\end{figure}
 
-	Da die STM32CP Applikation mit Xamarin.Native entworfen wurde, musste das Design sowohl für Android s.h. Abbildung \ref{fig:stm32cpApp} links als auch iOS, rechts in Abbildung \ref{fig:stm32cpApp}, getrennt entworfen werden. Zwar klingt dies nun nach doppelten Aufwand für das Design, jedoch hielt sich dies in Grenzen. Das Design einer iOS App ist durch das \textit{Storyboard}, welches für iOS Apps verwendet wird, rasch entworfen. Per Drag\&Drop lassen sich die gewünschten UI Elemente im Layout platzieren und müssen durch Anpassung der \textit{Constraints}\footnote{Durch einen Constraint wird eine Beziehung zwischen Rahmen des Layouts und dem UI Element erzwungen, damit dessen relative Position immer gleich ist} positioniert werden. Für das Design der Android Version kann auch die \textit{XML} Dateien der STM32KB App zurückgegriffen werden sodass mit Copy\&Paste bestimmter Elemente das Design rasch entworfen ist.
+	Da die STM32CP Applikation mit Xamarin.Native entworfen wurde, musste das Design sowohl für Android s.h. Abbildung \ref{fig:stm32cpApp} links als auch iOS, rechts in Abbildung \ref{fig:stm32cpApp}, getrennt entworfen werden. Zwar klingt dies nun nach doppelten Aufwand für das Design, jedoch hielt sich dies in Grenzen. Das Design einer iOS App ist durch das \textit{Storyboard}, welches für iOS Apps verwendet wird, rasch entworfen. Per Drag\&Drop lassen sich die gewünschten UI Elemente im Layout platzieren und müssen durch Anpassung der \textit{Constraints}\footnote{Durch einen Constraint wird eine Beziehung zwischen Rahmen des Layouts und dem UI Element erzwungen, damit dessen relative Position immer gleich ist} positioniert werden. Für das Design der Android Version kann auf die \textit{XML} Dateien der STM32KB App zurückgegriffen werden sodass mit Copy\&Paste bestimmter Elemente das Design rasch entworfen ist.
 
-	Auf Basis der Erfahrungen die, während der Spezifizierung als auch der Programmierung der CP Variante einer Nativen Android Applikation, gesammelt wurden sollen diese dabei helfen die MCKB App mit Xamarin.Forms zu entwickeln.
+	\newpage
+	Vergleicht man dies nun mit dem Ersten Design Entwurf der MCKB Applikation, ersichtlich in Abbildung \ref{fig:mckbApp}, so ist trotz systemspezifischer Design Unterschiede, eine klare Ähnlichkeit zwischen den Zielplattformen zu erkennen. Die \textit{Page} der App ist zur Gänze in der PCL Klasse umgesetzt worden und benötigt einen minimalen Zielplattform spezifischen Code für die Darstellung der UI Elemente, jedoch nicht für die Geschäftslogik. 
+
+	\begin{figure}[h!]
+		\centering
+		\begin{subfigure}
+			\centering
+			\includegraphics[width=.4\textwidth]{images/MCKB-Droid-reading.png}
+		\end{subfigure}
+		\begin{subfigure}
+			\centering
+			\includegraphics[width=.4\textwidth]{images/MCKB-iOS-reading.png}
+		\end{subfigure}
+		\caption{Design der MCKB App}
+		\label{fig:mckbApp}
+	\end{figure}
+
+	Für Android, siehe Abbildung \ref{fig:mckbApp} links, ist es klassisch das die \textit{Tabs} für ein \textit{Tabbed Layout}\footnote{In früheren Versionen von Xamarin.Forms wurden keine Icons oder benutzerdefinierte Bilder in den Registerkarten angezeigt. In der Version 2.5.0.121934 ist dies bereits möglich} im oberen Bereich des Bildschirm positioniert sind. Bei iOS hingegen sind die \textit{Tabs} die einen View beinhalten im unteren Bereich des Bildschirm positioniert. Das Wechseln zwischen den \textit{Tabs} funktioniert in der Android Version durch Wischen von rechts nach links, bzw. Vize versa, oder auswählen der entsprechenden Registerkarten.
+
 	\newpage
 
 \section{Applikations Spezifizierung}
