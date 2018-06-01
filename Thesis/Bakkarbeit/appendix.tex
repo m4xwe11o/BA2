@@ -163,17 +163,17 @@ namespace MCKB{
             <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" Android="0,0,0,0"></OnPlatform>
         </ContentPage.Padding>
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center" Padding="10,10,10,10">
-            <Entry HorizontalTextAlignment="Center" Placeholder="Firstname" x:Name="firstname"/>
-            <Entry HorizontalTextAlignment="Center" Placeholder="Surname"/>
-            <Entry HorizontalTextAlignment="Center" Placeholder="Address"/>
-            <Entry HorizontalTextAlignment="Center" Placeholder="Email" Keyboard="Email"/>
-            <Entry HorizontalTextAlignment="Center" Placeholder="Password" IsPassword="true"/>
-            <Entry HorizontalTextAlignment="Center" Placeholder="Confirm Password" IsPassword="true"/>
+            <Entry HorizontalTextAlignment="Center" Placeholder="Firstname" x:Name="regfirstname"/>
+            <Entry HorizontalTextAlignment="Center" Placeholder="Surname" x:Name="regsurname"/>
+            <Entry HorizontalTextAlignment="Center" Placeholder="Address" x:Name="regaddress"/>
+            <Entry HorizontalTextAlignment="Center" Placeholder="Email" x:Name="regemail" Keyboard="Email"/>
+            <Entry HorizontalTextAlignment="Center" Placeholder="Password" x:Name="regpassword" IsPassword="true"/>
+            <Entry HorizontalTextAlignment="Center" Placeholder="Confirm Password" x:Name="regconfpassword" IsPassword="true"/>
             <StackLayout HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
                 <StackLayout Orientation="Horizontal" Padding="0,0,0,0">
                     <Button Text="Accept AGB" VerticalOptions="Center" Clicked="showAgb"/>
                     <Switch IsToggled="false" x:Name="accept" VerticalOptions="Center"/>
-                    <Button Text="REGISTER PAGE" IsEnabled="{Binding Source={x:Reference accept}, Path=IsToggled}"/>
+                    <Button Text="REGISTER PAGE" IsEnabled="{Binding Source={x:Reference accept}, Path=IsToggled}" Clicked="sendRegistration"/>
                 </StackLayout>
             </StackLayout>
         </StackLayout>
@@ -187,7 +187,7 @@ namespace MCKB{
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center" Padding="10,10,10,10">
             <Entry HorizontalTextAlignment="Center" Placeholder="Username" Keyboard="Text" x:Name="username"/>
             <Entry HorizontalTextAlignment="Center" Placeholder="Password" IsPassword="true" x:Name="password"/>
-            <Button Text="LOGIN PAGE" Clicked="sendRegistration"/>
+            <Button Text="LOGIN PAGE" Clicked="sendLogin"/>
         </StackLayout>
     </ContentPage>
 </TabbedPage>
