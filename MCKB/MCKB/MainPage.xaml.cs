@@ -36,8 +36,11 @@ namespace MCKB
                 password = regpassword.Text,
                 confpassword = regconfpassword.Text
             };
-            if(itemToAdd.password != itemToAdd.confpassword){
-                DisplayAlert("WARN", "Passwords did nit match", "OK");
+            if(itemToAdd.password != itemToAdd.confpassword || !(itemToAdd.email.Contains("@")) ){
+                DisplayAlert("WARN", "Passwords did nit match or email is invalid", "OK");
+                regemail.Text = "";
+                regpassword.Text = "";
+                regconfpassword.Text = "";
                 return;
             }else{
                 AddTodoItemAsync(itemToAdd);
