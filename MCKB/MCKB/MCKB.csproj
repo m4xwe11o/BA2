@@ -54,6 +54,8 @@
     </Compile>
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\ArticleGroup.cs" />
+    <Compile Include="Models\MckbAdministrators.cs" />
+    <Compile Include="Models\Users.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

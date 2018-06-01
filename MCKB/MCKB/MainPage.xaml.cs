@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Xamarin.Forms;
 
@@ -9,28 +11,37 @@ namespace MCKB
 {
     public partial class MainPage : TabbedPage
     {
-        
-
         private const string getarticles = "http://m4xwe11o.ddns.net:8000/api/articles";
         private const string getadministrators = "http://m4xwe11o.ddns.net:8000/api/administrators";
+        private const string setregistration = "http://m4xwe11o.ddns.net:8000/api/users";
 
         private HttpClient _client = new HttpClient();
         private ObservableCollection<Article> _articles;
 
         public ObservableCollection<MckbAdministrators> _administrator;
 
-        public class MckbAdministrators
+        void sendLogin(object sender, System.EventArgs e)
         {
-            public string Username { get; set; }
-            public string Password { get; set; }
-            public bool IsAuthor { get; set; }
-            public bool IsLocked { get; set; }
-            public bool login { get; set; }
+            GetAdministrators();
         }
 
         void sendRegistration(object sender, System.EventArgs e)
         {
-            GetAdministrators();
+            Users itemToAdd = new Users
+            {
+                surname = regsurname.Text,
+                firstname = regfirstname.Text,
+                address = regaddress.Text,
+                email = regemail.Text,
+                password = regpassword.Text,
+                confpassword = regconfpassword.Text
+            };
+            if(itemToAdd.password != itemToAdd.confpassword){
+                DisplayAlert("WARN", "Passwords did nit match", "OK");
+                return;
+            }else{
+                AddTodoItemAsync(itemToAdd);
+            }
         }
 
         protected async void GetAdministrators()
@@ -43,13 +54,29 @@ namespace MCKB
                 if (username.Text == _administrator[i].Username && password.Text == _administrator[i].Password)
                 {
                     _administrator[i].login = true;
-                    System.Diagnostics.Debug.WriteLine("Username: " + _administrator[i].Username + " \nPassword: " + _administrator[i].Password + " \nIsAuthor: " + _administrator[i].IsAuthor + " \nIsLocked: " + _administrator[i].IsLocked + " \nLogin: " + _administrator[i].login);
                     await DisplayAlert("Info", "Login successful\nproceed on Read Tab", "OK");
                     editButton.IsEnabled = true;
+                    username.Text = "";
+                    password.Text = "";
                 }
             }
         }
 
+        public async void AddTodoItemAsync(Users itemToAdd)
+        {
+            var data = JsonConvert.SerializeObject(itemToAdd);
+            var content = new StringContent(data, Encoding.UTF8, "application/json");
+            var response = await _client.PostAsync(setregistration, content);
+            if(response.ReasonPhrase == "OK"){
+                await DisplayAlert("Info", "Registration successful", "OK");
+                regsurname.Text = "";
+                regfirstname.Text = "";
+                regaddress.Text = "";
+                regemail.Text = "";
+                regpassword.Text = "";
+                regconfpassword.Text = "";
+            }
+        }
 
         void showAgb(object sender, System.EventArgs e)
         {
