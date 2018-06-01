@@ -16,13 +16,14 @@
 \label{chap:xamarin}
 	Xamarin ist ursprünglich als Firma Xamarin 2011 von Mono Entwicklern gegründet und 2016 von Microsoft übernommen worden. Microsoft hat Xamarin weiterentwickelt und stellt es heute als Open-Source Cross-platform Framework für Visual Studio ab Version 2015 und für Mac als Visual Studio for Mac zur Verfügung. Mit diesem Framework kann eine Cross-platform Applikation für Android, iOS und Windows 10 (früher Windows Mobile) geschrieben werden.
 
-	\textbf{Mono} ist eine Software Plattform die es ermöglicht Cross-platform Applikationen bzw. Software unter Einbindung von Microsofts .NET Framework zu entwickeln. Es basiert auf C\# als Programmiersprache und ist eine plattformunabhängige Software. Programme die in .NET geschrieben wurden und auf einem Linux Kernel ausgeführt werden sollen greifen auf Mono zurück um dies zu ermöglichen. Mono bildet somit eine Schnittstelle Microsofts .NET Framework zu verwenden.
+	\textbf{Mono} ist eine Software Plattform die es ermöglicht Cross-platform Applikationen bzw. Software unter Einbindung von Microsofts .NET Framework zu entwickeln. Es basiert auf C\# als Programmiersprache und ist eine plattformunabhängige Software. Programme die in .NET geschrieben wurden und auf einem Linux Kernel ausgeführt werden sollen, greifen auf Mono zurück um dies zu ermöglichen. Mono bildet somit eine Schnittstelle um Microsofts .NET Framework zu verwenden.
 
 	\textbf{Das .NET Framework} wiederum ist eine, ursprünglich von Microsoft entwickelte Softwareentwicklungsplattform, die in direkter Konkurrenz zu JAVA SE und JAVA EE steht. Es stellt eine Laufzeitumgebung (Common Language Runtime) für auszuführende Programme zur Verfügung und ermöglicht das Einbinden einer Vielzahl von Klassenbibliotheken und Programmierschnittstellen.
 
 	Wird eine .NET Anwendung ausgeführt so ist zum Kompilierungszeitpunkt eine Übersetzung in eine Zwischensprache (Common Intermediate Language) notwendig. Anschließend wird das Kompilat von der .NET Laufzeitumgebung in die Maschinensprache des Zielsystems übersetzt und ausgeführt. Diese Übersetzung aus der Common Intermediate Language geschieht durch den sogenannten Just-In-Time Compiler (JIT) - welcher bei Xamarin.Android verwendet wird um die Anwendung für das Android Betriebssystem zu erstellen. Eine iOS Anwendung unterstützt diesen JIT nicht. Die iOS Anwendung wird in Intermediate Language (IL) kompiliert und anschließend mittels eines Apple Compilers (Ahead-of-Time Compilation) in Nativen Code übersetzt. Aus diesem Grund wird für die iOS Entwicklung unter Windows ein Mac benötigt.
 
-	Bei Xamarin.Forms sieht dieser Prozess etwas anders aus da Xamarin.Forms eine Ebene über Xamarin.Native ist. Es ist die Aufgabe des Xamarin.Forms.Core Assemblers welcher Klassen und API Schnittstellen definiert um mit den Xamarin.Native Bibliotheken zu interagieren zu können.
+	%da Xamarin.Forms eine Ebene über Xamarin.Native ist.
+	Bei Xamarin.Forms sieht dieser Prozess etwas anders aus. Es ist die Aufgabe des Xamarin.Forms.Core Assemblers, welcher Klassen und API Schnittstellen definiert, mit den Xamarin.Native Bibliotheken zu interagieren.
 
 	\textbf{Xamarin} als Cross-platform Framework kann auf zwei Arten für die CP App Entwicklung verwendet werden:
 	\begin{itemize}
@@ -76,7 +77,7 @@
 	Für die Entwicklung der CP App wird Visual Studio for Mac verwendet, weil somit eine iOS Anwendung einfacher getestet werden kann. Man kann eine iOS App auch mit Windows erstellen, allerdings benötigt man dazu einen Mac im gleichen WLAN Netzwerk damit der Compiler die App erzeugen und ausführen kann.
 
 	\newpage
-	\textbf{PCL} steht für Portable Class Library und ist jene Klasse in welcher sich der gemeinsame Code für die Cross-platform App befindet.
+	\textbf{PCL} steht für Portable Class Library und ist jene Klasse des Projektes in welcher sich der gemeinsame Code für die Cross-platform App befindet.
 	
 	\begin{figure}[h!]
 		\centering
@@ -91,7 +92,7 @@
         	Weiters ist das XAML File aus Abbildung \ref{fig:xamarinaformxamlpreview} mit dessen Code Behind File zu erkennen. Die Ordner, \textit{Verweise} werden benötigt damit der Compiler die korrekte Zuordnung zum Zielbetriebssystem durchführen kann. Der Ordner \textit{Pakete} ermöglicht es Pakete des \textbf{NuGET} Paket Managers einzubinden. Ein solches Paket kann beispielsweise eine MySQL Anbindung an einen Server sein.
         \end{minipage}
 	\end{figure}
-	Die in Abbildung \ref{fig:xamarinformprojectstructure} wird im Laufe der Entwicklung um einige XAML und Code Behind Files wachsen. Der Prozess der Programmierung ist in Abschnitt \ref{chap:xamarinformsdevelopment} festgehalten.
+	% Die in Abbildung \ref{fig:xamarinformprojectstructure} wird im Laufe der Entwicklung um einige XAML und Code Behind Files wachsen. Der Prozess der Programmierung ist in Abschnitt \ref{chap:xamarinformsdevelopment} festgehalten.
 	\newpage
 
 \section{Entwicklung unter Xamarin.Forms}
@@ -182,7 +183,7 @@
 </ContentPage>
 	\end{lstlisting}
 
-	\begin{lstlisting}[caption={Beispiel ViewModel für Codeabschnitt \ref{lst:xamarinmvvmview} (View)},label={lst:xamarinmvvmviewmodel},captionpos=b,style=JAVA-Own]
+	\begin{lstlisting}[caption={Beispiel ViewModel für Codeabschnitt \ref{lst:xamarinmvvmview} (View)},label={lst:xamarinmvvmviewmodel},captionpos=b,style=csharp]
 class ViewModel{
 	ObservableCollection Item;
 	void Add(){
@@ -231,7 +232,7 @@ class ViewModel{
 		\label{fig:xamarinsharedcode}
 	\end{figure}
 
-	Der Unterschied bei der Festlegung auf welche Art und Weise der freigegebene Code für die Applikation verwaltete werden soll muss von Beginn an definiert werden. Eine Änderung im Nachhinein ist nicht mehr möglich.
+	Der Unterschied auf welche Art und Weise der freigegebene Code für die Applikation verwaltet werden soll muss von Beginn an definiert werden. Eine Änderung im Nachhinein ist nicht mehr möglich.
 
 	\textbf{Eine Portable Klassenbibliothek (\textit{PCL})} erstellt wie schon erwähnt alle notwendigen Verweise für eine Android und iOS Cross-Plattform Applikation. Dabei spielen die folgenden Verweise eine wichtige Rolle:
 	\begin{itemize}
@@ -242,7 +243,7 @@ class ViewModel{
 	\end{itemize}
 	Der Code in einer PCL wird zur Laufzeit zu einer \textit{dynamically-linked library (DLL)} für die Zielplattform Referenzen zusammengefasst. Ist es für die Cross-platform Applikation notwendig Nativen Code auszuführen, kann dies durch bestimmte \textbf{IF Abfragen} in der PCL Klasse umgesetzt werden.\\
 
-	\begin{lstlisting}[caption={Plattform spezifischen Code in PCL ausführen},label={lst:xamarinpcl},captionpos=b,style=JAVA-Own]
+	\begin{lstlisting}[caption={Plattform spezifischen Code in PCL ausführen},label={lst:xamarinpcl},captionpos=b,style=csharp]
 ...
 if (Device.OS == TargetPlatform.iOS){
 	//Run iOS Code here..
@@ -256,7 +257,7 @@ else if (Device.OS == Target.Platform.Android){
 
 	\textbf{Die Freigegebene Bibliothek (\textit{Shared Library (SL)/Shared Asset (SA)})\footnote{https://docs.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing}} stellt den einfachsten Ansatz für \textit{Code Sharing} dar. Für die Zielplattform wird nur jener Code dementsprechend kompiliert wenn es die dafür notwendigen Präprozessor Anweisungen enthält. Es wird somit der gesamte Inhalt des Projektes in jeden referenzierenden Teil des Projektes kopiert, als wäre es ein Teil davon.\\
 
-	\begin{lstlisting}[caption={Plattform spezifischen Code in SA/SL ausführen},label={lst:xamarinslsa},captionpos=b,style=JAVA-Own]
+	\begin{lstlisting}[caption={Plattform spezifischen Code in SA/SL ausführen},label={lst:xamarinslsa},captionpos=b,style=csharp]
 #if __iOS__
 	//Run iOS Code here..
 ...

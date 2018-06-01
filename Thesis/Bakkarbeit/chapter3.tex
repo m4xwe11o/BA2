@@ -21,7 +21,7 @@
 		\item \textbf{STM32KB}\footnote{Download via http://m4xwe11o.ddns.net/MAD-Test/App/stm32kb.apk} - Mit Android Studio, in JAVA, entwickelte Applikation im 4. Semester an der FH Campus Wien
 		\item \textbf{STM32CP} - Mit Visual Studio for Mac, in C\#, entwickelte Cross-Plattform Variante im 5. Semester an der FH Campus Wien
 	\end{enumerate}
-	Erstere Applikation wurde im Zuge der \textbf{Mobile App Development (MAD)} Vorlesung, zur Vertiefung von Software Engineering Skils unter Android Studio in JAVA entwickelt. Diese App ermöglicht die Darstellung von Artikeln zur Programmierung eines Mikrocontroller $\mu$C der Firma STM, um häufige Fragen zur Konfiguration unterschiedlicher Funktionen wie zum Beispiel \textit{UART (Universal Asynchronous Receive and Transmit)}, \textit{ADC (Analogue Digital Converter)} oder \textit{CAN (Controller Area Network)} einfach erklärt nachzulesen. Die App selber stellt nur die in einer MySQL Datenbank gespeicherten Artikel dar und ermöglichte es angemeldeten Benutzern bestehende Artikel zu editieren und zu speichern.
+	Erstere Applikation wurde im Zuge der \textbf{Mobile App Development (MAD)} Vorlesung, zur Vertiefung von Software Engineering Wissen unter Android Studio in JAVA entwickelt. Diese App ermöglicht die Darstellung von Artikeln zur Programmierung eines Mikrocontroller $\mu$C der Firma STM, um häufige Fragen zur Konfiguration unterschiedlicher Funktionen wie zum Beispiel \textit{UART (Universal Asynchronous Receive and Transmit)}, \textit{ADC (Analogue Digital Converter)} oder \textit{CAN (Controller Area Network)} einfach erklärt nachzulesen. Die App selber stellt nur die in einer MySQL Datenbank gespeicherten Artikel dar und ermöglichte es angemeldeten Benutzern bestehende Artikel zu editieren und zu speichern.
 
 	Da die STM32KB App selber keine Daten speichert sondern nur darstellt wurde eine Infrastruktur entworfen um die für die App notwendigen Daten mobil abrufen zu können. Es wurde eine unter anderem eine MySQL Datenbank und ein Webserver auf einem Raspberry PI B+ eingerichtet. Neue Artikel konnten über eine PHP Webseite\footnote{http://m4xwe11o.ddns.net/MAD-Test/webwriter.php} in die Datenbank geschrieben werden. Die App lud die Artikel aus der MySQL Datenbank über verschiedenste PHP Dateien in eine lokale SQL-Lite Datenbank.
 
@@ -84,13 +84,13 @@
 		\centering
 		\begin{subfigure}
 			\centering
-			\includegraphics[width=.4\textwidth]{images/MCKB-Droid-reading.png}
+			\includegraphics[width=.4\textwidth]{images/MCKB-Droid-reading-edit.png}
 		\end{subfigure}
 		\begin{subfigure}
 			\centering
-			\includegraphics[width=.4\textwidth]{images/MCKB-iOS-reading.png}
+			\includegraphics[width=.4\textwidth]{images/MCKB-iOS-reading-edit.png}
 		\end{subfigure}
-		\caption{Design der MCKB App}
+		\caption{Designentwurf der MCKB App - Beispiel Artikel lesen}
 		\label{fig:mckbApp}
 	\end{figure}
 
@@ -101,7 +101,7 @@
 \section{Applikations Spezifizierung}
 \label{sec:mckspecs}
 
-	Die Spezifizierungen sollen weitestgehend an die vorhergehenden Applikationen anknüpfen. Ein Schlüsselwort wie muss, erzwingt die Umsetzung während sollte, die Möglichkeit der Umsetzung vorschlägt.
+	Die Spezifizierungen sollen weitestgehend an die vorhergehenden Applikationen anknüpfen. Ein Schlüsselwort wie \textbf{muss}, erzwingt die Umsetzung während \textbf{sollte}, die Möglichkeit der Umsetzung vorschlägt.
 
 	Die Spezifizierungen umfassen folgende Bereiche:
 	\begin{itemize}
@@ -194,7 +194,8 @@
 				\begin{tabular}[c]{@{}l@{}}
 					1. Der Anwender öffnet die App\\ 
 					2. Der Tab \textbf{Lesen} wird ausgewählt\\
-					3. Sofern neue Artikel zur Verfügung stehen können diese\\durch Bestätigung eines Hinweises herunter geladen werden\\
+					3a. Sofern neue Artikel zur Verfügung stehen können diese\\durch Bestätigung eines Hinweises herunter geladen werden\\
+					3b.	Alternativ werden Artikel beim Start der App\\automatisch geladen\\
 					4. In der Page erscheint ein Drop Down Menü zur Auswahl\\ der Kategorie \\
 					5. Der Anwender wählt eine Kategorie und gelangt in die Un-\\terkategorie\\
 					6. Es werden die Artikel der korrespondierenden Kategorie\\dargestellt
@@ -250,8 +251,10 @@
 		\label{fig:restfulcommunication}
 	\end{figure}
 
+	Die in Abbildung \ref{fig:restfulcommunication} dargestellte Kommunikation wird beispielsweise durch einen \textit{GET Request} mit einer spezifischen URL, zum Beispiel \textit{http://ipaddress:8000/api/users} vom Client ausgelöst. Der Server nimmt die Anfrage entgegen, verarbeitet diese und sendet eine \textit{Response} im \textit{JSON} Format an den Client zurück.
+
 	Die API baut auf \textit{Node JS} auf und benötigt folgende Dateien:
-	\begin{lstlisting}[caption={Webservice Aufbau},label={lst:restfulapi},captionpos=b,style=JAVA-Own]
+	\begin{lstlisting}[caption={Webservice Aufbau},label={lst:restfulapi},captionpos=b,style=BashInputStyle]
 server@BA-SERVER:~/BA-RESTFUL-API$ ls -la
 drwxrwxr-x  8 server server 4096 Mai 29 13:04 .git
 drwxrwxr-x 55 server server 4096 Mai 29 12:55 node_modules
