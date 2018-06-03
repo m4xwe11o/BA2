@@ -244,6 +244,7 @@ class ViewModel{
 		\item \textit{Xamarin.Forms.Platform} linkt die plattformspezifischen Renderer von Android und iOS, damit Elemente in der PCL Klasse in plattformspezifischen Code übersetzt werden können.
 		\item \textit{Xamarin.Forms.Xaml} 
 	\end{itemize}
+	\newpage
 	Der Code in einer PCL wird zur Laufzeit zu einer \textit{dynamically-linked library (DLL)} für die Zielplattform Referenzen zusammengefasst. Ist es für die CP Applikation notwendig Nativen Code auszuführen, kann dies durch bestimmte \textbf{If Abfragen}, in der PCL Klasse umgesetzt werden.\\
 
 	\begin{lstlisting}[caption={Ausführung von plattformspezifischen Code in PCL},label={lst:xamarinpcl},captionpos=b,style=csharp]
