@@ -49,7 +49,7 @@
 
 	Jedoch ist zu beachten, dass der in Abbildung \ref{fig:xamarinarchitectur} in grau dargestellte Balken den Shared UI Code repräsentiert. Auf diesem aufbauend muss mit ungefähr 20\% zielplattformspezifischen UI Design gerechnet werden \cite{book:Xamarin-Mobile-Application-Development}. Näheres dazu wird in den folgenden Abschnitten \ref{sec:xamarinformsmvvm} sowie \ref{chap:xamarinformsdevelopment} genauer erläutert.
 
-	Wie Xamarin.Forms das rendern eines UI Elements durchführt ist in Abbildung \ref{fig:xamarinaformsrender} zu erkennen.
+	Wie Xamarin.Forms das Rendern eines UI Elements durchführt, ist in Abbildung \ref{fig:xamarinaformsrender} zu erkennen.
 
 	\begin{figure}[h!]
 		\centering
@@ -85,10 +85,10 @@
 			\centering
 			\includegraphics[width=.9\textwidth]{images/project-structure.png}
         	\label{fig:xamarinformprojectstructure}
-			\caption[Projekt Struktur einer CP App]{\\\hspace{\textwidth}Projekt Struktur einer CP App}
+			\caption[Projektstruktur einer CP App]{\\\hspace{\textwidth}Projekt Struktur einer CP App}
 		\end{minipage}
 		\begin{minipage}{.5\textwidth}
-			In Abbildung 2.4 sind alle relevanten Klassen aufgelistet, die für eine CP Applikation benötigt werden. Die \textbf{PCL} Klasse ist im Ordner \textit{MCKB} implementiert. Die weiteren Ordner beginnend mit \textit{MCKB.} gefolgt von \textit{Droid} oder \textit{iOS} können dafür verwendet werden, gezielt plattformspezifischen Code zu implementieren, welcher nicht von beiden Zielbetriebssystemen verwendet wird. 
+			In Abbildung 2.4 sind alle relevanten Klassen aufgelistet, die für eine CP Applikation benötigt werden. Die \textbf{PCL} Klasse ist im Ordner \textit{MCKB\footnote{MCKB - Micro Controller Knowledge Base}} implementiert. Die weiteren Ordner beginnend mit \textit{MCKB.} gefolgt von \textit{Droid} oder \textit{iOS} können dafür verwendet werden, gezielt plattformspezifischen Code zu implementieren, welcher nicht von beiden Zielbetriebssystemen verwendet wird. 
         	Weiters ist das XAML File aus Abbildung \ref{fig:xamarinaformxamlpreview} mit dessen Code behind File zu erkennen. Der Ordner \textit{Verweise} wird benötigt, damit der Compiler die korrekte Zuordnung zum Zielbetriebssystem durchführen kann. Der Ordner \textit{Pakete} ermöglicht es Pakete des \textbf{NuGET} Paket Managers einzubinden. Ein solches Paket kann beispielsweise eine MySQL Anbindung an einen Server sein.
         \end{minipage}
 	\end{figure}
@@ -98,29 +98,32 @@
 \section{Entwicklung unter Xamarin.Forms}
 \label{sec:xamarinformsdevelopement}
 
-	Wie schon in Abschnitt \ref{chap:xamarin} eingangs kurz angeschnitten wurden die Unterschiede der Kompilierung von Xamarin aufgezeigt. Als Entwickler kann man in C\# auf die schon bekannten .NET Klassen, aufgrund von Mono zugreifen und die Applikationslogik implementieren. Ist die App für den ersten Testlauf bereit, wählt man in der Projekt Struktur die Zielplattform aus und markiert diese als Start Projekt. In Abbildung \ref{fig:xamarinformprojectstructure} ist dies zum Beispiel \textit{MCKB.Droid}, da dieser Ordner durch eine Dicke Schrift hervorgehoben wurde.
+	Wie schon in Abschnitt \ref{chap:xamarin} kurz angesprochen, werden die Unterschiede der Kompilierung von Xamarin.Forms in diesem Abschnitt erläutert. Als Entwickler kann man in C\# auf die schon bekannten .NET Klassen  aufgrund von Mono zugreifen und die Applikationslogik implementieren. Ist die App für den ersten Testlauf bereit, wählt man in der Projektstruktur die Zielplattform aus und markiert diese als Startprojekt. In Abbildung 2.4 ist dies zum Beispiel \textit{MCKB.Droid}, da dieser Ordner durch Fettschrift hervorgehoben wurde.
 
 	Der Prozess der Kompilierung ist in Abbildung \ref{fig:xamarinanativeandroidcompile} zu erkennen.
+
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=1\textwidth]{images/Xamarin-Android.png}
-		\caption{Wie Xamarin.Android kompiliert wird}
+		\caption{Kompiliervorgang von Xamarin.Android}
 		\label{fig:xamarinanativeandroidcompile}
 	\end{figure}
 
-	Der C\# Code wird in die Intermediate Language (IL) umgesetzt und in die Mono Runtime geladen. Anschließend übernimmt der Just-In-Time (JIT) Compiler die Übersetzung in Nativen Code der anschließend auf dem Zielbetriebssystem ausgeführt wird. Dieser Prozess läuft im Xamarin Frameworks automatisch ab sobald die Applikation erstellt und auf das Virtuelle oder Hardware Gerät geladen werden soll.
+	Der C\# Code wird in die IL umgesetzt und in die Mono Runtime geladen. Anschließend übernimmt der JIT Compiler die Übersetzung in Nativen Code, der anschließend auf dem Zielbetriebssystem ausgeführt wird. Dieser Prozess läuft im Xamarin Framework automatisch ab, sobald die Applikation erstellt und in den virtuellen Emulator oder auf das Hardware Gerät geladen werden soll.
 
-	Wählt man in Abbildung \ref{fig:xamarinformprojectstructure} iOS als Startprojekt, \textit{MCKB.iOS} ist dann Dick hervorgehoben, so sieht der Erstellungsprozess differenzierter aus, da Apple eine JIT Kompilierung nicht unterstützt. Betrachtet man Abbildung \ref{fig:xamarinanativeioscompile} genauer erklärt es warum man einen Apple Computer für die Erstellung einer iOS oder MacOS Anwendung benötigt.
+	Wählt man in Abbildung 2.4 iOS als Startprojekt (\textit{MCKB.iOS} ist dann in Fettschrift hervorgehoben), so sieht der Erstellungsprozess differenzierter aus, da Apple eine JIT Kompilierung nicht unterstützt. Betrachtet man Abbildung \ref{fig:xamarinanativeioscompile} genauer, erklärt es warum man einen Apple Computer für die Erstellung einer iOS oder MacOS Anwendung benötigt.
+
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=1\textwidth]{images/Xamarin-iOS.png}
-		\caption{Wie Xamarin.iOS kompiliert wird}
+		\caption{Kompiliervorgang von Xamarin.iOS}
 		\label{fig:xamarinanativeioscompile}
 	\end{figure}
 
-	Für die Erstellung der iOS App wird gleich wie bei einer Android App der C\# Code in die IL kompiliert. Da nun keine Mono Runtime zur Verfügung steht wird ein Apple Compiler benötigt. Dieser Compiler ist der Ahead-of-Time (AOT) Compiler der nun die Übersetzung in Nativen Code übernimmt.
+	Für die Erstellung der iOS App wird, vergleichbar wie bei einer Android App, der C\# Code in die IL kompiliert. Da nun keine Mono Runtime zur Verfügung steht, wird ein Apple Compiler benötigt. Dieser Compiler ist der AoT Compiler, der nun die Übersetzung in den Nativen Code übernimmt.
 
-	Xamarin.Forms stellt eine höhere Abstraktions Ebene für die Entwicklung einer Applikation dar. Der Kompilierungsprozess lässt sich folgendermaßen darstellen.
+	Xamarin.Forms stellt eine höhere Abstraktionsebene für die Entwicklung einer Applikation dar. Der Kompilierungsprozess lässt sich folgendermaßen darstellen.
+
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=1\textwidth]{images/Xamarin-Forms.png}
@@ -128,15 +131,15 @@
 		\label{fig:xamarinformsarchitecture}
 	\end{figure}
 
-	Abbildung \ref{fig:xamarinformsarchitecture} beschreibt was durch Xamarin.Forms erzielt werden soll. Es baut auf den Bibliotheken für die Übersetzung in Nativen Android und iOS Code auf und ist das fehlende Bindeglied für den Prozess in Abbildung \ref{fig:xamarinaformsrender} (Rendering eines Button von Xamarin.Forms). Jener Part der für die Übersetzung des Codes zuständig ist, ist die \textit{Xamarin.Forms.Core} Bibliothek. Die in dem XAML File festgelegten UI Elemente der PCL Klasse sind Teil dieser \textit{Xamarin.Forms.Core} Bibliothek. Der Compiler übersetzt nun für die UI ELemente für Android, siehe Abbildung \ref{fig:xamarinanativeandroidcompile} und iOS, siehe Abbildung \ref{fig:xamarinanativeioscompile}, damit das Zielplattform spezifische Design dargestellt wird.
+	Abbildung \ref{fig:xamarinformsarchitecture} beschreibt was durch Xamarin.Forms erzielt werden soll. Es baut auf den Bibliotheken für die Übersetzung in Nativen Android und iOS Code auf und ist das fehlende Bindeglied für den Prozess in Abbildung \ref{fig:xamarinaformsrender} (Rendering eines Buttons von Xamarin.Forms). Jener Teil, der für die Übersetzung des Codes zuständig ist, ist die \textit{Xamarin.Forms.Core} Bibliothek. Die in dem XAML File festgelegten UI Elemente der PCL Klasse sind Teil dieser \textit{Xamarin.Forms.Core} Bibliothek. Der Compiler übersetzt nun für die UI Elemente für Android, siehe Abbildung \ref{fig:xamarinanativeandroidcompile} und iOS, siehe Abbildung \ref{fig:xamarinanativeioscompile}, damit das zielplattformspezifische Design dargestellt wird.
 	\newpage
 
 \subsection{Model View ViewModel - Design/Architectural Pattern}
 \label{sec:xamarinformsmvvm}
 	
-	\textbf{MVVM} ist eine Variante des \textit{Model View Controller Pattern} und dient dazu eine verbesserte Testbarkeit (Unit-Testing) durch Trennung der Benutzerschnittstelle und der sich dahinter befindlichen Logik der Benutzerschnittstelle zu ermöglichen. In einigen Büchern zur Entwicklung mit Xamarin wird auf das MVVM Pattern verwiesen da es eine Architektur Struktur für User Interfaces implementiert\cite{book:Xamarin.Forms-Essentials:}. Dies ist vor allem für komplexe Applikationen von Nutzen da durch eine verbesserte Testbarkeit von Modulen die Benutzerfreundlichkeit erheblich gesteigert werden kann.
+	\textbf{MVVM} ist eine Variante des \textit{Model View Controller Pattern} und dient dazu, eine verbesserte Testbarkeit (Unit-Testing) durch Trennung der Benutzerschnittstelle und der sich dahinter befindlichen Logik der Benutzerschnittstelle zu ermöglichen. In einigen Büchern zur Entwicklung von Applikationen mit Xamarin wird auf das MVVM Pattern, verwiesen da es eine Architekturstruktur für UI implementiert\cite{book:Xamarin.Forms-Essentials:}. Dies ist vor allem für komplexe Applikationen von Nutzen, da durch eine verbesserte Testbarkeit von Modulen die Benutzerfreundlichkeit erheblich gesteigert werden kann.
 
-	\textbf{Model:} Repräsentiert ein Business Objekt das die Daten und das Verhalten der Applikation kapselt. Für die MCKB Applikation wären dies:
+	\textbf{Model:} Repräsentiert ein Business Objekt, das die Daten und das Verhalten der Applikation kapselt. Für die MCKB Applikation wären dies:
 	\begin{itemize}
 		\setlength\itemsep{0em}
 		\item Artikel
@@ -144,7 +147,7 @@
 		\item Kommentare zu Artikeln
 	\end{itemize}
 
-	\textbf{View:} Ist das was der Anwender sieht wenn er die Applikation verwendet. Artikel werden in \textit{Pages\footnote{https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/controls/pages}} dargestellt. Kommentare, welche Teil einer Artikel Page sind, die es zu Artikeln gibt werden angezeigt und können hinzugefügt werden. Wie der View definiert wird hängt von der Design Spezifizierung der Page und dessen Layout ab und kann Beispielsweise eines folgender Layouts sein:
+	\textbf{View:} Dies ist das, was der Anwender sieht wenn er die Applikation verwendet. Artikel, der MCKB CP App, werden in \textit{Pages\footnote{https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/controls/pages}} dargestellt. Kommentare, welche Teil einer Artikel \textit{Page} sind, die es zu Artikeln gibt, werden angezeigt und können hinzugefügt werden. Wie der View definiert wird, hängt von der Design Spezifizierung der \textit{Page} und dessen Layout ab und kann beispielsweise eines folgender Layouts sein:
 	\begin{itemize}
 		\setlength\itemsep{0em}
 		\item Content Page
@@ -153,17 +156,17 @@
 		\item Carousel Page
 		\item ...
 	\end{itemize}
-	Innerhalb einer Page kann ein Layout definiert werden um Daten nach einem Schema darzustellen. Folgende \textit{Layouts\footnote{https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/controls/layouts}} kann eine Page enthalten:
+	Innerhalb einer \textit{Page} kann ein Layout definiert werden, um Daten nach einem Schema darzustellen. Folgende \textit{Layouts\footnote{https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/controls/layouts}} kann eine Page enthalten:
 	\begin{itemize}
 		\setlength\itemsep{0em}
 		\item Content View
 		\item Scroll View
-		\item Stack, Absolute, Relative oder Grid Layout
+		\item Stack-, Absolute-, Relative- oder GridLayout
 	\end{itemize}
 
-	\textbf{ViewModel:} Dies ist ein Model welches für einen View entworfen wurde. Es ist eine Klasse mit Eigenschaften welche den Zustand eines View's sowie Methoden und die Logik eines View's implementiert.
+	\textbf{ViewModel:} Dies ist ein Model, welches für einen View entworfen wurde. Es ist eine Klasse mit Eigenschaften, welche den Zustand eines Views sowie Methoden und dessen Logik implementiert.
 	\newpage
-	Ein ViewModel für den View in Codeabschnitt \ref{lst:xamarinmvvmview}, welches eine \textit{Page} mit einem \textit{Stacklayout (horizontale Anordnung von UI Elementen)}, einem \textbf{Button} und einen \textbf{ListView} mit \textbf{Items} enthält, hätte beispielsweise ein ViewModel, welches in Codeabschnitt \ref{lst:xamarinmvvmviewmodel} abgebildet ist, um Elemente dem ListView hinzuzufügen:\\
+	Ein ViewModel für den View in Codeabschnitt \ref{lst:xamarinmvvmview}, welches eine \textit{Page} mit einem \textit{StackLayout (horizontale Anordnung von UI Elementen)}, einem \textbf{Button} und einem \textbf{ListView} mit \textbf{Items} enthält, hätte beispielsweise ein ViewModel, welches in Codeabschnitt \ref{lst:xamarinmvvmviewmodel} abgebildet ist, um Elemente dem ListView hinzuzufügen:\\
 
 	\begin{lstlisting}[caption={Beispiel View},label={lst:xamarinmvvmview},captionpos=b,style=JAVA-Own]
 <?xml version="1.0" encoding="utf-8"?>
@@ -192,17 +195,17 @@ class ViewModel{
 }
 	\end{lstlisting}
 
-	Auf den Ersten Blick sieht das ViewModel in Codeabschnitt \ref{lst:xamarinmvvmviewmodel} aus wie eine code-behind Implementierung (der Button wird mit einem Event-Handler verlinkt um die Add Funktion aufzurufen) für das XAML des View in Codeabschnitt \ref{lst:xamarinmvvmview} aus. Jedoch ist ein ViewModel keine code-behind Implementierung.
+	Auf den ersten Blick sieht das ViewModel in Codeabschnitt \ref{lst:xamarinmvvmviewmodel} aus wie eine code-behind Implementierung (der Button wird mit einem Event Handler verlinkt um die \textit{Add} Funktion aufzurufen) für das XAML des View in Codeabschnitt \ref{lst:xamarinmvvmview} aus. Jedoch ist ein ViewModel keine code-behind Implementierung.
 
-	\textbf{Code-behind} ist fest an Xamarin gekoppelt. Dies führt dazu, dass es schwer ist für eine solche code-behind Klasse einen Unit-Test zu implementieren. Um den Code in der code-behind Klasse dennoch testen zu können wird dieser Code in die ViewModel Klasse geschrieben und abgeändert um eine minimale Kopplung mit Xamarin zu haben. Der Code ist nun ein \textbf{Plain Old CLR Object (POCO)} Objekt für das Unit-Tests erzeugt werden können.
+	\textbf{Code-behind} ist fest an Xamarin gekoppelt. Dies führt dazu, dass es schwer ist für eine solche code-behind Klasse einen Unit-Test zu implementieren. Um den Code in der code-behind Klasse dennoch testen zu können, wird dieser Code in die ViewModel Klasse geschrieben und abgeändert, um eine minimale Kopplung mit Xamarin zu haben. Der Code ist nun ein \textbf{Plain Old CLR Object (POCO)} Objekt, für das Unit-Tests erzeugt werden können.
 
-	\textbf{Unit/Model Tests} sind Software Tests welche funktionale Einzelteile von Software auf deren korrekte Funktionalität testen. Die für diese Arbeit geschriebene CP Applikation wird keine Unit/Modul Test implementieren.
+	\textbf{Unit/Model Tests} sind Software Tests, welche funktionale Einzelteile von Software auf deren korrekte Funktionalität testen. Die für diese Arbeit geschriebene CP Applikation wird keine Unit/Modul Tests implementieren.
 
 \newpage
 \subsection{Projekterstellung mit Visual Studio for Mac}
 \label{sec:xamarincreateproject}
 
-	Für die Entwicklung der CP Applikation wird \textbf{Visual Studio for Mac} verwendet im sowohl eine Android als auch iOS Version der Applikation entwickeln zu können. Die Projekterstellung unter Windows mit \textbf{Visual Studio 2015} oder \textbf{2017} verläuft analog im gleichen Schema.
+	Für die Entwicklung der CP Applikation wird \textbf{Visual Studio for Mac} verwendet, um sowohl eine Android als auch iOS Version der Applikation entwickeln zu können. Die Projekterstellung unter Windows mit \textbf{Visual Studio 2015} oder \textbf{2017} verläuft analog im gleichen Schema.
 
 	Zu Beginn wird eine Standard Xamarin.Forms Applikation erstellt. Hierbei muss entschieden werden wie der CP Code geteilt werden soll:
 
@@ -213,9 +216,7 @@ class ViewModel{
 		\label{fig:xamarinprojectstart}
 	\end{figure}
 
-	In Abbildung \ref{fig:xamarinprojectstart} ist zu erkennen das schon bei der Erstellung der Applikation festgelegt werden muss auf welche Art und Weise der \textit{Shared Code}, der CP-App implementiert werden soll.
-
-	In Abbildung \ref{fig:xamarinsharedcode} ist zu erkennen wie sich \textbf{Portable Class Library} von \textbf{Shared Library} unterscheiden. Wird PCL für den freigegeben Code verwendet, siehe Abbildung \ref{fig:xamarinsharedcode} links, so erstellt die IDE alle notwendigen Verweise und verlinkt diese. Anders ist dies bei einem Shared Library (SL) Projekt, bei welchem der Entwickler selbst die notwendigen Verweise zu weiteren dependencies einbinden muss.
+	In Abbildung \ref{fig:xamarinprojectstart} ist zu erkennen, dass schon bei der Erstellung der Applikation festgelegt werden muss, auf welche Art und Weise der \textit{Shared Code} der CP-App implementiert werden soll.
 
 	\newpage
 	\begin{figure}[h!]
@@ -232,18 +233,20 @@ class ViewModel{
 		\label{fig:xamarinsharedcode}
 	\end{figure}
 
-	Der Unterschied auf welche Art und Weise der freigegebene Code für die Applikation verwaltet werden soll muss von Beginn an definiert werden. Eine Änderung im Nachhinein ist nicht mehr möglich.
+	In Abbildung \ref{fig:xamarinsharedcode} ist zu erkennen, wie sich \textbf{Portable Class Library} von \textbf{Shared Library} unterscheiden. Wird PCL für den freigegeben Code verwendet, siehe Abbildung \ref{fig:xamarinsharedcode} links, so erstellt die IDE alle notwendigen Verweise und verlinkt diese. Anders ist dies bei einem Shared Library (SL) Projekt, bei welchem der Entwickler selbst die notwendigen Verweise zu weiteren Projekt Files (dependencies) einbinden muss.
 
-	\textbf{Eine Portable Klassenbibliothek (\textit{PCL})} erstellt wie schon erwähnt alle notwendigen Verweise für eine Android und iOS Cross-Plattform Applikation. Dabei spielen die folgenden Verweise eine wichtige Rolle:
+	Der Unterschied, auf welche Art und Weise der freigegebene Code für die Applikation verwaltet werden soll, muss von Beginn an definiert werden. Eine Änderung im Nachhinein ist nicht mehr möglich.
+
+	\textbf{Eine \textit{PCL}} erstellt (in Abbildung \ref{fig:xamarinprojectstart} ersichtlich) alle notwendigen Verweise für eine Android und iOS CP Applikation. Dabei spielen die folgenden Verweise eine wichtige Rolle:
 	\begin{itemize}
 		\setlength\itemsep{0em}
 		\item \textit{Xamarin.Forms.Core} definiert eine allgemeine API (Application Programming Interface) für Klassen wie zum Beispiel Buttons, Labels, ListViews uvm.
-		\item \textit{Xamarin.Forms.Platform} linkt die Plattform spezifischen Renderer von Android und iOS damit Elemente in der PCL Klasse in Plattform spezifischen Code übersetzt werden können.
-		\item \textit{Xamarin.Forms.Xaml}
+		\item \textit{Xamarin.Forms.Platform} linkt die plattformspezifischen Renderer von Android und iOS, damit Elemente in der PCL Klasse in plattformspezifischen Code übersetzt werden können.
+		\item \textit{Xamarin.Forms.Xaml} 
 	\end{itemize}
-	Der Code in einer PCL wird zur Laufzeit zu einer \textit{dynamically-linked library (DLL)} für die Zielplattform Referenzen zusammengefasst. Ist es für die CP Applikation notwendig Nativen Code auszuführen, kann dies durch bestimmte \textbf{IF Abfragen} in der PCL Klasse umgesetzt werden.\\
+	Der Code in einer PCL wird zur Laufzeit zu einer \textit{dynamically-linked library (DLL)} für die Zielplattform Referenzen zusammengefasst. Ist es für die CP Applikation notwendig Nativen Code auszuführen, kann dies durch bestimmte \textbf{If Abfragen}, in der PCL Klasse umgesetzt werden.\\
 
-	\begin{lstlisting}[caption={Plattform spezifischen Code in PCL ausführen},label={lst:xamarinpcl},captionpos=b,style=csharp]
+	\begin{lstlisting}[caption={Ausführung von plattformspezifischen Code in PCL},label={lst:xamarinpcl},captionpos=b,style=csharp]
 ...
 if (Device.OS == TargetPlatform.iOS){
 	//Run iOS Code here..
@@ -255,9 +258,9 @@ else if (Device.OS == Target.Platform.Android){
 ...
 	\end{lstlisting}
 
-	\textbf{Die Freigegebene Bibliothek (\textit{Shared Library (SL)/Shared Asset (SA)})\footnote{https://docs.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing}} stellt den einfachsten Ansatz für \textit{Code Sharing} dar. Für die Zielplattform wird nur jener Code dementsprechend kompiliert wenn es die dafür notwendigen Präprozessor Anweisungen enthält. Es wird somit der gesamte Inhalt des Projektes in jeden referenzierenden Teil des Projektes kopiert, als wäre es ein Teil davon.\\
+	\textbf{Die SL\footnote{https://docs.microsoft.com/en-us/xamarin/cross-platform/app-fundamentals/code-sharing}} (in Abbildung \ref{fig:xamarinprojectstart}\textit{Shared Library (SL)/Shared Asset (SA)} ersichtlich) stellt den einfachsten Ansatz für \textit{Code Sharing} dar. Für die Zielplattform wird nur jener Code dementsprechend kompiliert, wenn es die dafür notwendigen Präprozessor Anweisungen enthält. Es wird somit der gesamte Inhalt des Projektes in jeden referenzierenden Teil des Projektes kopiert, als wäre es ein Teil davon.\\
 
-	\begin{lstlisting}[caption={Plattform spezifischen Code in SA/SL ausführen},label={lst:xamarinslsa},captionpos=b,style=csharp]
+	\begin{lstlisting}[caption={Ausführung von plattformspezifischen Code in SA/SL},label={lst:xamarinslsa},captionpos=b,style=csharp]
 #if __iOS__
 	//Run iOS Code here..
 ...
@@ -267,9 +270,9 @@ else if (Device.OS == Target.Platform.Android){
 #endif
 	\end{lstlisting}
 
-	Codeabschnitt \ref{lst:xamarinslsa} veranschaulicht diese Präprozessor Anweisungen die in den C\# Klassen den Plattformspezifischen Code zu finden sind.
+	Codeabschnitt \ref{lst:xamarinslsa} veranschaulicht diese Präprozessor Anweisungen, die in den C\# Klassen den plattformspezifischen Code zu finden sind.
 
-	Wird eine PCL als Code Sharing Basis verwendet. wird der Zugriff auf mögliche \textit{.NET Klassen} auf eine kleinere Untermenge beschränkt, jedoch kann dieses Problem durch Implementierung einer Schnittstelle, da dadurch auf die Ursprüngliche Menge an .NET Klassen zurückgegriffen werden kann.
+	Wird eine PCL als Code Sharing Basis verwendet, wird der Zugriff auf mögliche \textit{.NET Klassen} auf eine kleinere Untermenge dieser beschränkt. Jedoch kann dieses Problem durch Implementierung einer Schnittstelle behoben werden, da dadurch auf die ursprüngliche Menge an \textit{.NET Klassen} zurückgegriffen werden kann.
 
 
 

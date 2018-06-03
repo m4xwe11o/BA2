@@ -12,31 +12,31 @@
 %----------------------------------------------------------------
 
 
-\chapter{Design Entwicklung der MCKB Applikation}
+\chapter{Designentwicklung der MCKB Applikation}
 \label{chap:xamarinformsdevelopment}
 
-	Als Basis für diese Arbeit dienen zwei während des Studiums entwickelte mobile Applikationen.
+	Als Basis für diese Arbeit dienen zwei während des Studiums entwickelte mobile Applikationen, nämlich:
+
 	\begin{enumerate}
 		\setlength\itemsep{0em}
 		\item \textbf{STM32KB}\footnote{Download via http://m4xwe11o.ddns.net/MAD-Test/App/stm32kb.apk} - Mit Android Studio, in JAVA, entwickelte Applikation im 4. Semester an der FH Campus Wien
-		\item \textbf{STM32CP} - Mit Visual Studio for Mac, in C\#, entwickelte Cross-Plattform Variante im 5. Semester an der FH Campus Wien
+		\item \textbf{STM32CP} - Mit Visual Studio for Mac, in C\#, entwickelte CP Variante im 5. Semester an der FH Campus Wien
 	\end{enumerate}
-	Erstere Applikation wurde im Zuge der \textbf{Mobile App Development (MAD)} Vorlesung, zur Vertiefung von Software Engineering Wissen unter Android Studio in JAVA entwickelt. Diese App ermöglicht die Darstellung von Artikeln zur Programmierung eines Mikrocontroller $\mu$C der Firma STM, um häufige Fragen zur Konfiguration unterschiedlicher Funktionen wie zum Beispiel \textit{UART (Universal Asynchronous Receive and Transmit)}, \textit{ADC (Analogue Digital Converter)} oder \textit{CAN (Controller Area Network)} einfach erklärt nachzulesen. Die App selber stellt nur die in einer MySQL Datenbank gespeicherten Artikel dar und ermöglichte es angemeldeten Benutzern bestehende Artikel zu editieren und zu speichern.
 
-	Da die STM32KB App selber keine Daten speichert sondern nur darstellt wurde eine Infrastruktur entworfen um die für die App notwendigen Daten mobil abrufen zu können. Es wurde eine unter anderem eine MySQL Datenbank und ein Webserver auf einem Raspberry PI B+ eingerichtet. Neue Artikel konnten über eine PHP Webseite\footnote{http://m4xwe11o.ddns.net/MAD-Test/webwriter.php} in die Datenbank geschrieben werden. Die App lud die Artikel aus der MySQL Datenbank über verschiedenste PHP Dateien in eine lokale SQL-Lite Datenbank.
+	Die Erstere Applikation wurde im Zuge der \textbf{Mobile App Development (MAD)} Vorlesung zur Vertiefung von Software Engineering Wissen unter Android Studio in JAVA entwickelt. Diese App ermöglicht die Darstellung von Artikeln zur Programmierung eines Mikrocontroller $\mu$C der Firma STM, um häufige Fragen zur Konfiguration unterschiedlicher Funktionen wie zum Beispiel \textit{UART (Universal Asynchronous Receive and Transmit)}, \textit{ADC (Analogue Digital Converter)} oder \textit{CAN (Controller Area Network)} einfach erklärt nachzulesen. Die App selber stellt die in einer MySQL Datenbank gespeicherten Artikel dar und ermöglicht es angemeldeten Benutzern bestehende Artikel zu editieren und zu speichern.
 
-	Für die Entwicklung der STM32CP App (geschrieben mit Xamarin.Native) greift auch diese App auf die schon bestehende Infrastruktur an Server und Datenbank zurück um die Spezifizierten funktionalen Anforderungen zu erfüllen.
+	Da die STM32KB App selber keine Daten speichert sondern nur darstellt, wurde eine Infrastruktur entworfen, um die für die App notwendigen Daten mobil abrufen zu können. Es wurde unter anderem eine MySQL Datenbank und ein Webserver auf einem Raspberry PI B+ eingerichtet. Neue Artikel konnten über eine PHP Webseite\footnote{http://m4xwe11o.ddns.net/MAD-Test/webwriter.php} in die Datenbank geschrieben werden. Die App lädt die Artikel aus der MySQL Datenbank über verschiedenste PHP Dateien in eine lokale SQL-Lite Datenbank.
+
+	Für die Entwicklung der STM32CP App (geschrieben mit Xamarin.Native) greift auch diese App auf die schon bestehende Infrastruktur an Server und Datenbank zurück, um die spezifizierten funktionalen Anforderungen zu erfüllen.
 
 	\newpage
-	Entsprechend der Anforderungen an die STM32KB App wurden folgende Funktionale Anforderungen im dazugehörigen \textit{Software Requirements Document (SRS)} festgehalten:
+	Entsprechend der Anforderungen an die STM32KB App, wurden folgende funktionale Anforderungen im dazugehörigen \textit{Software Requirements Specification Document (SRS)} festgehalten:
 	\begin{itemize}
 		\setlength\itemsep{0em}
-		\item \textbf{Autor login} - Benutzer können sich in der App anmelden und sehen einen EDIT Button bei Artikeln
-		\item \textbf{Autor registrieren} - Anwender können sich registrieren um als Autoren freigeschaltet zu werden
-		\item \textbf{Artikel lesen} - Benutzer können Artikel lesen
+		\item \textbf{Autor Login} - Benutzer können sich in der App anmelden und sehen einen EDIT Button bei Artikeln
+		\item \textbf{Autor Registrieren} - Anwender können sich registrieren, um als Autoren freigeschaltet zu werden
+		\item \textbf{Artikel Lesen} - Benutzer können Artikel lesen
 	\end{itemize}
-
-	In Abbildung \ref{fig:stm32kbApp} sind jene funktionale Anforderungen mit deren Layouts aus der App dargestellt. Die Menüführung erfolgt großteils über Buttons und der Zurück Funktion von Android über den Pfeil links oben oder jener entsprechenden Taste auf dem Android Gerät.
 
 	\begin{figure}[h!]
 		\centering
@@ -52,15 +52,15 @@
 			\centering
 			\includegraphics[width=.3\textwidth]{images/stm32kb-articlescreen.png}
 		\end{subfigure}
-		\caption{Design der STM32KB App - v.l.n.r. Login, Register, Lesen}
+		\caption{Design der STM32KB App - v.l.n.r. Login, Registrierung, Lesen}
 		\label{fig:stm32kbApp}
 	\end{figure}
 
-	Für die Entwicklung beider CP-Apps wurde eine andere Art der Menüführung herangezogen. Statt einer Navigation über Buttons und Pfeile sind die funktionalen Anforderungen in Form von \textit{Tabs (Registerkarten)} umgesetzt worden. Ein Tabbed Layout steht sowohl unter Xamarin.Native als auch Xamarin.Forms zur Verfügung und wird von dem jeweiligen Zielbetriebssystem Renderer so gerendert das es dem Typischen Design Merkmalen entspricht.
+	In Abbildung \ref{fig:stm32kbApp} sind jene funktionale Anforderungen mit deren Layouts aus der App dargestellt. Die Menüführung erfolgt großteils über Buttons und der Zurück Funktion von Android über den Pfeil links oben oder jene entsprechenden Taste auf dem Android Gerät.
+
+	Für die Entwicklung beider CP Apps wurde eine andere Art der Menüführung herangezogen. Statt einer Navigation über Buttons und Pfeile, sind die funktionalen Anforderungen in Form von \textit{Tabs (Registerkarten)} umgesetzt worden. Ein Tabbed Layout steht sowohl unter Xamarin.Native, als auch Xamarin.Forms zur Verfügung und wird von dem jeweiligen Zielbetriebssystem Renderer so gerendert, dass es den typischen Design Merkmalen entspricht.
 
 	\newpage
-	In Abbildung \ref{fig:stm32cpApp} ist das veränderte Menü durch \textit{Tabs} ersichtlich. Dem Anwender wird durch ein übersichtlicheres Design die Handhabung der Applikation vereinfacht.
-
 	\begin{figure}[h!]
 		\centering
 		\begin{subfigure}
@@ -75,11 +75,11 @@
 		\label{fig:stm32cpApp}
 	\end{figure}
 
-	Da die STM32CP Applikation mit Xamarin.Native entworfen wurde, musste das Design sowohl für Android s.h. Abbildung \ref{fig:stm32cpApp} links als auch iOS, rechts in Abbildung \ref{fig:stm32cpApp}, getrennt entworfen werden. Zwar klingt dies nun nach doppelten Aufwand für das Design, jedoch hielt sich dies in Grenzen. Das Design einer iOS App ist durch das \textit{Storyboard}, welches für iOS Apps verwendet wird, rasch entworfen. Per Drag\&Drop lassen sich die gewünschten UI Elemente im Layout platzieren und müssen durch Anpassung der \textit{Constraints}\footnote{Durch einen Constraint wird eine Beziehung zwischen Rahmen des Layouts und dem UI Element erzwungen, damit dessen relative Position immer gleich ist} positioniert werden. Für das Design der Android Version kann auf die \textit{XML} Dateien der STM32KB App zurückgegriffen werden sodass mit Copy\&Paste bestimmter Elemente das Design rasch entworfen ist.
+	In Abbildung \ref{fig:stm32cpApp} ist das veränderte Menü durch \textit{Tabs} ersichtlich. Dem Anwender wird durch ein übersichtlicheres Design die Handhabung der Applikation vereinfacht.
+
+	Da die STM32CP Applikation mit Xamarin.Native entworfen wurde, musste das Design sowohl für Android s.h. Abbildung \ref{fig:stm32cpApp} links, als auch iOS, rechts in Abbildung \ref{fig:stm32cpApp}, getrennt entworfen werden. Zwar klingt dies nun nach doppeltem Aufwand für das Design, jedoch hielt sich dies in Grenzen. Das Design einer iOS App ist durch das \textit{Storyboard}, welches für iOS Apps verwendet wird, rasch entworfen. Per Drag\&Drop lassen sich die gewünschten UI Elemente im Layout platzieren und müssen durch Anpassung der \textit{Constraints}\footnote{Durch einen Constraint wird eine Beziehung zwischen Rahmen des Layouts und dem UI Element erzwungen, damit dessen relative Position immer gleich ist} positioniert werden. Für das Design der Android Version kann auf die \textit{XML} Dateien der STM32KB App zurückgegriffen werden, sodass mit Copy\&Paste bestimmter Elemente das Design rasch entworfen ist.
 
 	\newpage
-	Vergleicht man dies nun mit dem Ersten Design Entwurf der MCKB Applikation, ersichtlich in Abbildung \ref{fig:mckbApp}, so ist trotz systemspezifischer Design Unterschiede, eine klare Ähnlichkeit zwischen den Zielplattformen zu erkennen. Die \textit{Page} der App ist zur Gänze in der PCL Klasse umgesetzt worden und benötigt einen minimalen Zielplattform spezifischen Code für die Darstellung der UI Elemente, jedoch nicht für die Geschäftslogik. 
-
 	\begin{figure}[h!]
 		\centering
 		\begin{subfigure}
@@ -94,24 +94,25 @@
 		\label{fig:mckbApp}
 	\end{figure}
 
-	Für Android, siehe Abbildung \ref{fig:mckbApp} links, ist es klassisch das die \textit{Tabs} für ein \textit{Tabbed Layout}\footnote{In früheren Versionen von Xamarin.Forms wurden keine Icons oder benutzerdefinierte Bilder in den Registerkarten angezeigt. In der Version 2.5.0.121934 ist dies bereits möglich} im oberen Bereich des Bildschirm positioniert sind. Bei iOS hingegen sind die \textit{Tabs} die einen View beinhalten im unteren Bereich des Bildschirm positioniert. Das Wechseln zwischen den \textit{Tabs} funktioniert in der Android Version durch Wischen von rechts nach links, bzw. Vize versa, oder auswählen der entsprechenden Registerkarten.
+	Vergleicht man dies nun mit dem ersten Design Entwurf der MCKB Applikation, ersichtlich in Abbildung \ref{fig:mckbApp}, so ist trotz systemspezifischer Designunterschiede, eine klare Ähnlichkeit zwischen den Zielplattformen zu erkennen. Die \textit{Page} der App ist zur Gänze in der PCL Klasse umgesetzt worden und benötigt einen minimalen zielplattformspezifischen Code für die Darstellung der UI Elemente, jedoch nicht für die Geschäftslogik. 
 
+	Für Android, siehe Abbildung \ref{fig:mckbApp} links, ist es klassisch das die \textit{Tabs} für ein \textit{Tabbed Layout}\footnote{In früheren Versionen von Xamarin.Forms wurden keine Icons oder benutzerdefinierte Bilder in den Registerkarten angezeigt. In der Version 2.5.0.121934 ist dies bereits möglich.} im oberen Bereich des Bildschirms positioniert sind. Bei iOS hingegen sind die \textit{Tabs}, die eine Page beinhalten, im unteren Bereich des Bildschirms positioniert. Das Wechseln zwischen den \textit{Tabs} funktioniert in der Android Version durch Wischen von rechts nach links, bzw. vice versa, oder auswählen der entsprechenden \textit{Tabs} möglich.
 	\newpage
 
 \section{Applikationsspezifizierung}
 \label{sec:mckspecs}
 
-	Die Spezifizierungen sollen weitestgehend an die vorhergehenden Applikationen anknüpfen. Ein Schlüsselwort wie \textbf{muss}, erzwingt die Umsetzung während \textbf{sollte}, die Möglichkeit der Umsetzung vorschlägt.
+	Die Spezifizierungen sollen weitestgehend an die vorhergehenden Applikationen anknüpfen. Ein Schlüsselwort wie \textbf{muss} erzwingt die Umsetzung während \textbf{sollte} die Möglichkeit der Umsetzung vorschlägt. Die Spezifizierungen umfassen folgende Bereiche:
 
-	Die Spezifizierungen umfassen folgende Bereiche:
 	\begin{itemize}
 		\setlength\itemsep{0em}
 		\item Design
 		\item Funktionale Anforderungen
-		\item Nicht Funktionale Anforderungen
+		\item Nicht funktionale Anforderungen
 	\end{itemize}
 
-	\textbf{Design:} Das Design der App muss mit maximal drei Menüebenen bedienbar sein. Sofern Xamarin.Forms ein Tabbed Layout zur Verfügung stellt so sollte dieses für eine bestmögliche Benutzerfreundlichkeit verwendet werden. Für die Auflistung der Artikel ist folgende Hierarchie zu wählen:
+	\textbf{Design:} Das Design der App muss mit maximal drei Menüebenen bedienbar sein. Sofern Xamarin.Forms ein Tabbed Layout zur Verfügung stellt, so sollte dieses für eine bestmögliche Benutzerfreundlichkeit verwendet werden. Bezüglich der Farbwahl sollte diese harmonisch sein, demnach blasse Farben die nicht zu sehr in den Vordergrund drängen. Für die Auflistung der Artikel ist folgende Hierarchie zu wählen:
+
 	\begin{itemize}
 		\setlength\itemsep{0em}
 		\item Dropdown für Kategorien
@@ -125,9 +126,9 @@
 			\end{itemize}
 		\end{itemize}
 	\end{itemize}
-	Bezüglich der Farbwahl sollte diese harmonisch sein, demnach blasse Farben die nicht zu sehr in den Vordergrund drängen.
 
-	\textbf{Funktionale Anforderungen }sollen jene Funktionalitäten beschreiben die direkt mit den Anforderungen an die Applikation zusammen hängen. Funktionale Anforderungen können nach folgenden Schema\footnote{Das SRS Dokument wurde in der Vorlesung Software Engineering im 4. Semester vorgestellt} definiert werden:
+	\textbf{Funktionale Anforderungen }sollen jene Funktionalitäten beschreiben, die direkt mit den Anforderungen an die Applikation zusammenhängen. Funktionale Anforderungen können nach dem folgenden Schema\footnote{Das SRS Dokument wurde in der Vorlesung Software Engineering im 4. Semester vorgestellt.} definiert werden:
+
 	\begin{table}[h]
 		\centering
 		\begin{tabular}{ll}
@@ -146,7 +147,9 @@
 		\label{my-label}
 	\end{table}
 
-	\newpage Die in Tabelle \ref{tab:autorlogin} dargestellte Anforderung musste nicht angepasst werden.
+	\newpage
+	Die in Tabelle \ref{tab:autorlogin} dargestellte Anforderung musste nicht angepasst werden.
+
 	\begin{table}[h!]
 		\centering
 		\begin{tabular}{lp{11cm}}
@@ -165,7 +168,8 @@
 		\label{tab:autorlogin}
 	\end{table}
 
-	Die in Tabelle \ref{tab:autorregister} beschriebene Anforderung wurde in der Ersten CP Version angepasst. In der Nativen Version der Applikation wurden nach Eingabe der Daten vier Fragen an den Anwender gestellt um dessen Wissen über Mikrocontroller zu prüfen. Die Ergebnisse der Fragen und die Daten aus dem Registrierungsformular wurden anschließend an einen Administrator der App übermittelt, damit dieser den neuen Benutzer freischalten kann. Der Schritt mit den Fragen zur Wissensüberprüfung wurde nicht implementiert um nur essentielle Funktionale Anforderungen zur Verfügung zu stellen.
+	Die in Tabelle \ref{tab:autorregister} beschriebene Anforderung wurde in der ersten CP Version angepasst. In der Nativen Version der Applikation wurden nach Eingabe der Daten vier Fragen an den Anwender gestellt, um dessen Wissen über Mikrocontroller zu prüfen. Die Ergebnisse der Fragen und die Daten aus dem Registrierungsformular wurden anschließend an einen Administrator der App übermittelt, damit dieser den neuen Benutzer freischalten kann. Der Schritt mit den Fragen zur Wissensüberprüfung wurde nicht implementiert, um nur essentielle funktionale Anforderungen zur Verfügung zu stellen.
+
 	\begin{table}[h!]
 		\centering
 		\begin{tabular}{lp{11cm}}
@@ -184,7 +188,9 @@
 		\label{tab:autorregister}
 	\end{table}
 
-	\newpage Als letzte Funktionale Anforderung ist in Tabelle \ref{tab:artikelread} die Anforderung an das Lesen von Artikeln beschrieben. Diese Anforderung ist ein Zentraler Baustein für die Implementierung des gemeinsamen Codes für die Geschäftslogik.
+	\newpage
+	Als letzte funktionale Anforderung ist in Tabelle \ref{tab:artikelread} die Anforderung an das Lesen von Artikeln beschrieben. Diese Anforderung ist ein zentraler Baustein für die Implementierung des gemeinsamen Codes für die Geschäftslogik.
+
 	\begin{table}[h!]
 		\centering
 		\begin{tabular}{lp{11cm}}
@@ -205,7 +211,8 @@
 		\label{tab:artikelread}
 	\end{table}
 
-	\textbf{Nicht funktionale Anforderungen } sind Anforderungen an die Qualität in der die Funktionalität zu erbringen ist. Folgende nicht funktionale Anforderungen wurden für die MCKB Applikation definiert:
+	\textbf{Nicht funktionale Anforderungen,} sind Anforderungen an die Qualität in der die Funktionalität zu erbringen ist. Folgende nicht funktionale Anforderungen wurden für die MCKB Applikation definiert:
+
 	\begin{enumerate}
 		\setlength\itemsep{0em}
 		\item Benutzeroberfläche
@@ -229,31 +236,27 @@
 	\end{enumerate}
 
 	\newpage
-% \subsection{Funktionale Anforderungen}
-% \label{sec:mckbfunkcspecs}
-	
-% \subsection{Nicht Funktionale Anforderungen}
-% \label{sec:mckbnonfuncspecs}
 
 \section{Anpassungen an die Serverumgebung im Vergleich zur Xamarin.Native Version}
 \label{sec:mckbspecs}
 
-	Für die Erste CP-APP konnte über die Xamarin Komponente \textit{MySQL Plugin} über Port 3306 \textit{MySQL} auf die Datenbank zugegriffen werden\cite{Maximilian2017}. Auf Kosten der Sicherheit war dies eine einfache Lösung um Daten aus der Datenbank in die Applikation zu laden. Um diesen Zugriff umzusetzen musste der MySQL Port auf dem Server freigegeben werden, ein \textit{Port-Forwarding} auf dem Router und ein \textit{NAT} auf der FW eingerichtet werden.
+	Für die erste CP App konnte über die Xamarin Komponente \textit{MySQL Plugin} über Port 3306 (\textit{MySQL}) auf die Datenbank zugegriffen werden\cite{Maximilian2017}. Auf Kosten der Sicherheit war dies eine einfache Lösung, um Daten aus der Datenbank in die Applikation zu laden. Um diesen Zugriff umsetzen zu können, musste der MySQL Port auf dem Server freigegeben werden, ein \textit{Port-Forwarding} auf dem Router und ein \textit{NAT} auf der Firewall eingerichtet werden.
 
-	Mit 18. Mai 2018 wurde der Komponenten Store für Xamarin abgeschaltet\footnote{https://docs.microsoft.com/en-us/xamarin/cross-platform/troubleshooting/component-nuget?tabs=vswin} um nur noch den \textbf{NuGET} Store für Plugins zu verwenden. Dies hatte zur Folge das, dass hinzufügen des \textit{MySQL Plugins} in der PCL nicht mehr möglich war. Zwar kann man das Plugin, für den direkten Datenbank Zugriff, dem Android und iOS Projekt einzeln hinzufügen, jedoch muss dann sowohl für das Android als auch das iOS Projekt die Geschäftslogik für den Zugriff auf die Datenbank zweimal implementiert werden.
+	Am 18. Mai 2018 wurde der Komponenten Store für Xamarin abgeschaltet\footnote{https://docs.microsoft.com/en-us/xamarin/cross-platform/troubleshooting/component-nuget?tabs=vswin}, um nur noch den \textbf{NuGET} Store für Plugins zu verwenden. Dies hatte zur Folge, dass das Hinzufügen des \textit{MySQL Plugins} in der PCL nicht mehr möglich war. Zwar kann man das Plugin für den direkten Datenbank Zugriff dem Android und iOS Projekt einzeln hinzufügen, jedoch muss dann sowohl für das Android, als auch das iOS Projekt die Geschäftslogik für den Zugriff auf die Datenbank zweimal implementiert werden.
 
-	Infolgedessen folgt die MCKB App den Vorgaben von Microsoft und verwendet eine \textit{RESTFul API}\footnote{https://docs.microsoft.com/en-us/xamarin/cross-platform/data-cloud/web-services/} (REST - Representational State Transfer) um auf die Daten aus der Datenbank in die App zu laden. Um diesen Zugriff auf dem Webserver über eine Webservice API zu ermöglichen musste die genannte \textit{RESTFul API} implementiert werden. Die Kommunikation mit dem Server ist in Abbildung \ref{fig:restfulcommunication} dargestellt.
+	Infolgedessen folgt die MCKB App den Vorgaben von Microsoft und verwendet eine \textit{RESTFul API}\footnote{https://docs.microsoft.com/en-us/xamarin/cross-platform/data-cloud/web-services/} (REST - Representational State Transfer), um die Daten aus der Datenbank in die App zu laden. Um diesen Zugriff auf dem Webserver über eine Webservice API zu ermöglichen, musste die genannte \textit{RESTFul API} implementiert werden. Die Kommunikation mit dem Server ist in Abbildung \ref{fig:restfulcommunication} dargestellt.
 
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=1\textwidth]{images/restfull-communication.png}
-		\caption{Client - Server Kommunikation neu}
+		\caption{Client - Server Kommunikation}
 		\label{fig:restfulcommunication}
 	\end{figure}
 
-	Die in Abbildung \ref{fig:restfulcommunication} dargestellte Kommunikation wird beispielsweise durch einen \textit{GET Request} mit einer spezifischen URL, zum Beispiel \textit{http://ipaddress:8000/api/users} vom Client ausgelöst. Der Server nimmt die Anfrage entgegen, verarbeitet diese und sendet eine \textit{Response} im \textit{JSON} Format an den Client zurück.
+	Die in Abbildung \ref{fig:restfulcommunication} dargestellte Kommunikation wird beispielsweise durch einen \textit{GET Request} mit einer spezifischen URL, zum Beispiel \textit{http://ipaddress:8000/api/users} vom Client ausgelöst. Der Server nimmt die Anfrage entgegen, verarbeitet diese und sendet eine \textit{Response} im \textit{JSON (JavaScript Object Notation)} Format an den Client zurück.
 
 	Die API baut auf \textit{Node JS} auf und benötigt folgende Dateien:
+
 	\begin{lstlisting}[caption={Webservice Aufbau},label={lst:restfulapi},captionpos=b,style=BashInputStyle]
 server@BA-SERVER:~/BA-RESTFUL-API$ ls -la
 drwxrwxr-x  8 server server 4096 Mai 29 13:04 .git
@@ -263,9 +266,10 @@ drwxrwxr-x 55 server server 4096 Mai 29 12:55 node_modules
 -rw-rw-r--  1 server server 1328 Mai 29 00:44 Server.js
 	\end{lstlisting}
 	
-	Die Datei \textit{Server.js}, in Codeabschnitt \ref{lst:restfulapi} Zeile sechs, startet den Webserver und die Schnittstelle \textit{/api} um GET oder POST Requests anzunehmen. In der Datei \textit{REST.js} sind die Schnittstellen zum Aufrufen von Daten konfiguriert. Der Ordner \textit{node\_modules} beinhaltet Pakete die für das Webservice, beispielsweise \textit{mysql}, \textit{md5} (erzeugt Hashwerte für Passwörter) oder \textit{moment} (erzeugt einen Timestamp), benötigt werden.
+	Die Datei \textit{Server.js}, in Zeile sechs des Codeabschnitts \ref{lst:restfulapi}, startet den Webserver und die Schnittstelle \textit{/api}, um GET oder POST Requests anzunehmen. In der Datei \textit{REST.js} sind die Schnittstellen zum Aufrufen von Daten konfiguriert. Der Ordner \textit{node\_modules} beinhaltet Pakete, die für das Webservice, beispielsweise \textit{mysql}, \textit{md5} (erzeugt Hashwerte für Passwörter) oder \textit{moment} (erzeugt einen Timestamp), benötigt werden.
 
-	Folgende Schnittstellen sind für die APP definiert und implementiert\footnote{Einstiegspunkt ist http://m4xwe11o.ddns.net:8000/api}:
+	Folgende Schnittstellen sind für die App definiert und implementiert\footnote{Einstiegspunkt ist http://m4xwe11o.ddns.net:8000/api.}:
+
 	\begin{itemize}
 		\setlength\itemsep{0em}
 		\item GET \textbf{/administrators:} Liefert alle in der Datenbank gespeicherten Administratoren
@@ -274,11 +278,12 @@ drwxrwxr-x 55 server server 4096 Mai 29 12:55 node_modules
 		\item GET \textbf{/articles/:article\_id:} Liefert einen bestimmten Artikel anhand dessen ID zurück
 		\item GET \textbf{/article/count:} Liefert die Anzahl an Artikeln zurück
 		\item GET \textbf{/users:} Liefert alle in der Datenbank gespeicherten Benutzer
-		\item POST \textbf{/users:} ermöglicht das hinzufügen von neuen Benutzern zur Datenbank
+		\item POST \textbf{/users:} ermöglicht das Hinzufügen von neuen Benutzern zur Datenbank
 	\end{itemize}
 
-	Die Server Antwort wird bei einem der API Aufrufe als \textit{JSON (JavaScript Object Notation)} zurückgeliefert.
-	\begin{lstlisting}[caption={Serverantwort - \textbf{/article/count:} API Call },label={lst:restfulapicallcount},captionpos=b,style=JAVA-Own]
+	Die Serverantwort wird bei einem der API Aufrufe als \textit{JSON} zurückgeliefert.
+
+	\begin{lstlisting}[caption={Serverantwort - \textbf{/article/count:} API Call},label={lst:restfulapicallcount},captionpos=b,style=JAVA-Own]
 {
     "Error": false,
     "Message": "Success",
@@ -286,7 +291,7 @@ drwxrwxr-x 55 server server 4096 Mai 29 12:55 node_modules
 }
 	\end{lstlisting}
 
-	Um einen neuen Benutzer in der Datenbank anzulegen wird die URL \textit{http://.../api/users} aufgerufen und die notwendigen Parameter übergeben. 
+	Um einen neuen Benutzer in der Datenbank anzulegen, wird die URL \textit{http://.../api/users} aufgerufen und die notwendigen Parameter übergeben. 
 
 	\begin{lstlisting}[caption={Anlegen eines neuen Benutzers durch URL Encoding},label={lst:restfulapicallnewuser},captionpos=b,style=JAVA-Own]
 POST /api/users HTTP/1.1
@@ -299,7 +304,7 @@ surname=Thomas&firstname=Pessl&address=Musterstrasse+18%2F2%2C+1110+Wien
 &email=maximilian%40pessl.at&password=supersafe&confpassword=supersafe
 	\end{lstlisting}
 
-	In Codeabschnitt \ref{lst:restfulapicallnewuser} wird ein HTTP POST auf die URL \textbf{/api/users} aufgerufen und in Zeile acht alle notwendigen Parameter als Teil der URL übergeben. Die Geschäftslogik für das Anlegen eines neuen Users ist in Abschnitt \ref{chap:app} in Abbildung \ref{fig:serversidecode} zu finden.
+	In Codeabschnitt \ref{lst:restfulapicallnewuser} wird ein HTTP POST auf die URL \textbf{/api/users} aufgerufen und in Zeile acht alle notwendigen Parameter als Teil der URL übergeben. Die Geschäftslogik für das Anlegen eines neuen Users ist in Anhang \ref{chap:app} in Abbildung \ref{fig:serversidecode} zu finden.
 
 
 
