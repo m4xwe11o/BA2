@@ -14,29 +14,29 @@
 
 \chapter{Xamarin als Cross-Platform Framework}
 \label{chap:xamarin}
-	Xamarin ist ursprünglich als Firma Xamarin 2011 von Mono Entwicklern gegründet und 2016 von Microsoft übernommen worden. Microsoft hat Xamarin weiterentwickelt und stellt es heute als Open-Source Cross-platform Framework für Visual Studio ab Version 2015 und für Mac als Visual Studio for Mac zur Verfügung. Mit diesem Framework kann eine Cross-platform Applikation für Android, iOS und Windows 10 (früher Windows Mobile) geschrieben werden.
+	Xamarin wurde ursprünglich als Firma Xamarin 2011 von Mono Entwicklern gegründet und 2016 von Microsoft übernommen. Microsoft hat Xamarin weiterentwickelt und stellt es heute als Open-Source CPF für Visual Studio ab Version 2015 und für Mac als Visual Studio for Mac zur Verfügung. Mit diesem Framework kann eine CP Applikation für Android, iOS und Windows 10 (früher Windows Mobile) geschrieben werden.
 
-	\textbf{Mono} ist eine Software Plattform die es ermöglicht Cross-platform Applikationen bzw. Software unter Einbindung von Microsofts .NET Framework zu entwickeln. Es basiert auf C\# als Programmiersprache und ist eine plattformunabhängige Software. Programme die in .NET geschrieben wurden und auf einem Linux Kernel ausgeführt werden sollen, greifen auf Mono zurück um dies zu ermöglichen. Mono bildet somit eine Schnittstelle um Microsofts .NET Framework zu verwenden.
+	\textbf{Mono} ist eine Software Plattform, die es ermöglicht CP Applikationen bzw. Software, unter Einbindung von Microsofts .NET Framework zu entwickeln. Es basiert auf C\# als Programmiersprache und ist eine plattformunabhängige Software. Programme die in .NET geschrieben wurden und auf einem Linux Kernel ausgeführt werden sollen, greifen auf Mono zurück, um dies zu ermöglichen. Mono bildet somit eine Schnittstelle um Microsofts .NET Framework zu verwenden.
 
-	\textbf{Das .NET Framework} wiederum ist eine, ursprünglich von Microsoft entwickelte Softwareentwicklungsplattform, die in direkter Konkurrenz zu JAVA SE und JAVA EE steht. Es stellt eine Laufzeitumgebung (Common Language Runtime) für auszuführende Programme zur Verfügung und ermöglicht das Einbinden einer Vielzahl von Klassenbibliotheken und Programmierschnittstellen.
+	\textbf{Das .NET Framework} wiederum ist eine ursprünglich von Microsoft entwickelte Softwareentwicklungsplattform, die in direkter Konkurrenz zu JAVA SE und JAVA EE steht. Es stellt eine Laufzeitumgebung (Common Language Runtime) für auszuführende Programme zur Verfügung und ermöglicht das Einbinden einer Vielzahl von Klassenbibliotheken und Programmierschnittstellen.
 
-	Wird eine .NET Anwendung ausgeführt so ist zum Kompilierungszeitpunkt eine Übersetzung in eine Zwischensprache (Common Intermediate Language) notwendig. Anschließend wird das Kompilat von der .NET Laufzeitumgebung in die Maschinensprache des Zielsystems übersetzt und ausgeführt. Diese Übersetzung aus der Common Intermediate Language geschieht durch den sogenannten Just-In-Time Compiler (JIT) - welcher bei Xamarin.Android verwendet wird um die Anwendung für das Android Betriebssystem zu erstellen. Eine iOS Anwendung unterstützt diesen JIT nicht. Die iOS Anwendung wird in Intermediate Language (IL) kompiliert und anschließend mittels eines Apple Compilers (Ahead-of-Time Compilation) in Nativen Code übersetzt. Aus diesem Grund wird für die iOS Entwicklung unter Windows ein Mac benötigt.
+	Wird eine .NET Anwendung ausgeführt, so ist zum Kompilierungszeitpunkt eine Übersetzung in eine Zwischensprache (Common Intermediate Language) notwendig. Anschließend wird das Kompilat von der .NET Laufzeitumgebung in die Maschinensprache des Zielsystems übersetzt und ausgeführt. Diese Übersetzung aus der Common Intermediate Language geschieht durch den sogenannten Just-In-Time (JIT) Compiler, welcher bei Xamarin.Android verwendet wird, um die Anwendung für das Android Betriebssystem zu erstellen. Eine iOS Anwendung unterstützt diesen JIT Compiler nicht. Die iOS Anwendung wird in Intermediate Language (IL) kompiliert und anschließend mittels eines Apple Compilers (Ahead-of-Time Compilation) in Nativen Code übersetzt. Aus diesem Grund wird für die iOS Entwicklung unter Windows ein Mac benötigt.
 
-	%da Xamarin.Forms eine Ebene über Xamarin.Native ist.
+	% da Xamarin.Forms eine Ebene über Xamarin.Native ist.
 	Bei Xamarin.Forms sieht dieser Prozess etwas anders aus. Es ist die Aufgabe des Xamarin.Forms.Core Assemblers, welcher Klassen und API Schnittstellen definiert, mit den Xamarin.Native Bibliotheken zu interagieren.
 
-	\textbf{Xamarin} als Cross-platform Framework kann auf zwei Arten für die CP App Entwicklung verwendet werden:
+	\textbf{Xamarin} als CPF kann auf zwei Arten für die CP App Entwicklung verwendet werden:
 	\begin{itemize}
 		\setlength\itemsep{0em}
 		\item Xamarin Platform - auch bekannt als Xamarin.iOS und Xamarin.Android
 		\item Xamarin.Forms
 	\end{itemize}
-	Je nach Art der zu entwickelnden Applikation eignet sich entweder Xamarin.Native oder Xamarin.Forms. Eine Entscheidung für welche Version sich entschieden wird sollte bestenfalls während der Analyse, jedoch spätestens in der Design Phase geklärt werden.
+	Je nach Art der zu entwickelnden Applikation, eignet sich entweder Xamarin.Native oder Xamarin.Forms. Eine Entscheidung für welche Version sich entschieden wird, sollte bestenfalls während der Analyse Phase, jedoch spätestens in der Design Phase geklärt sein.
 
 \section{Xamarin.Forms Überblick}
 \label{sec:xamrinformsoverview}
 
-	Ziel von Xamarin.Forms ist es, das Maximum an gemeinsamem Code und einheitlichen UI Elementen zur Verfügung zu stellen. Wird eine App während der Implentierungsphase für iOS oder Android erstellt um erste Tests durchzuführen wird der Applikations Code nativ auf dem Zielbetriebssystem ausgeführt \cite{book:Xamarin.Forms-Essentials:} und so gerendert das es das typische Design darstellt.
+	Ziel von Xamarin.Forms ist es, das Maximum an gemeinsamen Code und einheitlichen UI Elementen zur Verfügung zu stellen. Wird eine App während der Implementierungsphase für iOS oder Android erstellt, um erste Tests durchzuführen, wird der Applikationscode nativ auf dem Zielbetriebssystem ausgeführt \cite{book:Xamarin.Forms-Essentials:} und so gerendert, dass es das typische Design darstellt.
 
 	\begin{figure}[h!]
 		\centering
@@ -45,9 +45,9 @@
 		\label{fig:xamarinarchitectur}
 	\end{figure}
 
-	Abbildung \ref{fig:xamarinarchitectur} zeigt wie die Xamarin.Forms Architektur aussieht. Dabei werden die Nativen Bibliotheken von Android \textit{Android SDK}, iOS \textit{iOS UIKit} und Windows Phone bzw. Windows Mobile \textit{UWP SDK} eingebunden. Das Einbinden dieser Bibliotheken stellt dem Framework eine Vielzahl an UI Elementen zur Darstellung von Inhalten zur Verfügung. In der derzeitigen Version von Xamarin.Forms sind es 17 unterschiedliche Elemente.
+	Abbildung \ref{fig:xamarinarchitectur} zeigt wie die Xamarin.Forms Architektur aussieht. Dabei werden die Nativen Bibliotheken von Android \textit{Android SDK}, iOS \textit{iOS UIKit} und Windows Phone bzw. Windows Mobile \textit{UWP SDK} eingebunden. Das Einbinden dieser Bibliotheken stellt dem Framework eine Vielzahl an UI Elementen zur Darstellung von Inhalten zur Verfügung. In der derzeitigen Version von Xamarin.Forms sind es 17 unterschiedliche Elemente, Stand Q2 2018.
 
-	Jedoch ist zu beachten, dass der in Abbildung \ref{fig:xamarinarchitectur} in grau dargestellte Balken den Shared UI Code repräsentiert. Auf diesem aufbauend muss mit ungefähr 20\% Zielplattform spezifischen UI Design gerechnet werden \cite{book:Xamarin-Mobile-Application-Development}. Näheres dazu wird in den folgenden Abschnitten \ref{sec:xamarinformsmvvm} sowie \ref{chap:xamarinformsdevelopment} genauer erläutert.
+	Jedoch ist zu beachten, dass der in Abbildung \ref{fig:xamarinarchitectur} in grau dargestellte Balken den Shared UI Code repräsentiert. Auf diesem aufbauend muss mit ungefähr 20\% zielplattformspezifischen UI Design gerechnet werden \cite{book:Xamarin-Mobile-Application-Development}. Näheres dazu wird in den folgenden Abschnitten \ref{sec:xamarinformsmvvm} sowie \ref{chap:xamarinformsdevelopment} genauer erläutert.
 
 	Wie Xamarin.Forms das rendern eines UI Elements durchführt ist in Abbildung \ref{fig:xamarinaformsrender} zu erkennen.
 
@@ -58,15 +58,14 @@
 		\label{fig:xamarinaformsrender}
 	\end{figure}
 
-	Das Element \textbf{$<$Button$>$} wird im Layout File welches in XAML (Extensible Application Markup Language) geschrieben wurde, eingebaut. Wird der Code nun kompiliert ist der \textit{ButtonRenderer} jener Plattformspezifische renderer der, dass Xamarin.Forms UI Element in Nativen Code umsetzt. Der \textbf{$<$Button$>$} unter Xamarin.Forms wird dadurch in einen \textbf{UIButton} für iOS oder einen \textbf{Android.Button} für Android übersetzt. Dieses rendern macht Xamarin.Form einzigartig, da im Vergleich mit anderen Cross-platform Technologien das Design für die Zielplattformen meist mittels HTML oder CSS vorgenommen werden muss, um die UI Elemente in Native Design Elemente zu transformieren \cite{book:Xamarin-Mobile-Application-Development}.
+	Das Element \textbf{$<$Button$>$} wird im Layout File, welches in XAML (Extensible Application Markup Language) geschrieben wurde, eingebaut. Wird der Code nun kompiliert ist der \textit{ButtonRenderer} jener plattformspezifische Renderer, der das Xamarin.Forms UI Element in Nativen Code umsetzt. Der \textbf{$<$Button$>$} unter Xamarin.Forms wird dadurch in einen \textbf{UIButton} für iOS oder einen \textbf{Android.Button} für Android übersetzt. Dieses Rendern macht Xamarin.Form einzigartig, da im Vergleich mit anderen CP Technologien das Design für die Zielplattformen meist mittels HTML oder CSS vorgenommen werden muss, um die UI Elemente in Native Design Elemente zu transformieren \cite{book:Xamarin-Mobile-Application-Development}.
 
-	\textbf{Rendering} ist der Arbeitsschritt einer Bilderstellung aus Objekten die, wie im Beispiel des Xamarin.Forms Frameworks, aus grafischen Objekten bestehen, welche in XAML definiert wurden\footnote{https://www.itwissen.info/Rendering-rendering.html}.
+	\textbf{Rendering} ist der Arbeitsschritt einer Bilderstellung aus Objekten, die, wie im Beispiel des Xamarin.Forms Frameworks, aus grafischen Objekten bestehen, welche in XAML definiert wurden\footnote{https://www.itwissen.info/Rendering-rendering.html}.
 
-	\textbf{XAML} ist die Beschreibungssprache die Xamarin verwendet um die grafische Gestaltung des UI zu ermöglichen. Da XAML nur eine Beschreibungssprache ist kann es keinen Code enthalten. Alle Event Handler, wie zum Beispiel das Klicken eines Button, müssen in einem Code File definiert werden.
-	test
+	\textbf{XAML} ist die Beschreibungssprache, die Xamarin verwendet, um die grafische Gestaltung des UI zu ermöglichen. Da XAML nur eine Beschreibungssprache ist, kann es keinen Code enthalten. Alle Event Handler, wie zum Beispiel das Klicken eines Button, müssen in einem Code File definiert werden.
 
 	\newpage
-	Eine Standard XAML Datei ist in Abbildung \ref{fig:xamarinaformxamlpreview} dargestellt. Die Deklarationen in Zeile zwei bis drei definieren das der Namespace von Microsoft verwendet werden soll. In Zeile fünf wir ein Präfix für einen lokalen Namespace definiert um Zuweisungen im XAML File mit dem Code Behind File zu ermöglichen. Wird eine XAML Datei der PCL Klasse hinzugefügt, erzeugt die IDE neben der Layout Datei zusätzlich eine Code behind Datei. Diese ist in Abbildung \ref{fig:xamarinaformxamlpreview} als zweiter Tab zu erkennen. Über die Klasse \textit{MCKBPage.xaml.cs} wird das verhalten der App implementiert. Die Referenzierung erfolgt über die Namespace Deklarationen im XAML File.
+	Eine Standard XAML Datei ist in Abbildung \ref{fig:xamarinaformxamlpreview} dargestellt. Die Deklarationen in Zeile zwei bis drei definieren, dass der Namespace von Microsoft verwendet werden soll. In Zeile fünf wird ein Präfix für einen lokalen Namespace definiert, um Zuweisungen im XAML File mit dem Code Behind File zu ermöglichen. Wird eine XAML Datei der PCL Klasse hinzugefügt, erzeugt die IDE neben der Layout Datei zusätzlich eine Code behind Datei. Diese ist in Abbildung \ref{fig:xamarinaformxamlpreview} als zweiter Tab zu erkennen. Über die Klasse \textit{MCKBPage.xaml.cs} wird das Verhalten der App implementiert (Funktionen und Variablen Deklarationen). Die Referenzierung erfolgt über die Namespace Deklarationen im XAML File.
 
 	\begin{figure}[h!]
 		\centering
@@ -74,10 +73,11 @@
 		\caption[Aufbau einer XAML Datei für Xamarin.Forms]{Aufbau einer XAML Datei für Xamarin.Forms}
 		\label{fig:xamarinaformxamlpreview}
 	\end{figure}
-	Für die Entwicklung der CP App wird Visual Studio for Mac verwendet, weil somit eine iOS Anwendung einfacher getestet werden kann. Man kann eine iOS App auch mit Windows erstellen, allerdings benötigt man dazu einen Mac im gleichen WLAN Netzwerk damit der Compiler die App erzeugen und ausführen kann.
+
+	Für die Entwicklung der CP App wird Visual Studio for Mac verwendet, weil somit eine iOS Anwendung einfacher getestet werden kann. Man kann eine iOS App auch mit Windows erstellen, allerdings benötigt man dazu einen Mac im gleichen WLAN Netzwerk, damit der Compiler die App erzeugen und ausführen kann.
 
 	\newpage
-	\textbf{PCL} steht für Portable Class Library und ist jene Klasse des Projektes in welcher sich der gemeinsame Code für die Cross-platform App befindet.
+	\textbf{PCL} steht für Portable Class Library und ist jene Klasse des Projektes, in welcher sich der gemeinsame Code für die CP App befindet.
 	
 	\begin{figure}[h!]
 		\centering
@@ -88,8 +88,8 @@
 			\caption[Projekt Struktur einer CP App]{\\\hspace{\textwidth}Projekt Struktur einer CP App}
 		\end{minipage}
 		\begin{minipage}{.5\textwidth}
-			In Abbildung 2.4 sind alle relevanten Klassen aufgelistet die für eine Cross-platform Applikation benötigt werden. Die \textbf{PCL} Klasse ist im Ordner \textit{MCKB} implementiert. Die weiteren Ordner beginnend mit \textit{MCKB.} gefolgt von \textit{Droid} oder \textit{iOS} können dafür verwendet werden gezielt Plattformspezifischen Code zu implementieren welcher nicht von beiden Zielbetriebssystemen verwendet wird. 
-        	Weiters ist das XAML File aus Abbildung \ref{fig:xamarinaformxamlpreview} mit dessen Code Behind File zu erkennen. Die Ordner, \textit{Verweise} werden benötigt damit der Compiler die korrekte Zuordnung zum Zielbetriebssystem durchführen kann. Der Ordner \textit{Pakete} ermöglicht es Pakete des \textbf{NuGET} Paket Managers einzubinden. Ein solches Paket kann beispielsweise eine MySQL Anbindung an einen Server sein.
+			In Abbildung 2.4 sind alle relevanten Klassen aufgelistet, die für eine CP Applikation benötigt werden. Die \textbf{PCL} Klasse ist im Ordner \textit{MCKB} implementiert. Die weiteren Ordner beginnend mit \textit{MCKB.} gefolgt von \textit{Droid} oder \textit{iOS} können dafür verwendet werden, gezielt plattformspezifischen Code zu implementieren, welcher nicht von beiden Zielbetriebssystemen verwendet wird. 
+        	Weiters ist das XAML File aus Abbildung \ref{fig:xamarinaformxamlpreview} mit dessen Code behind File zu erkennen. Der Ordner \textit{Verweise} wird benötigt, damit der Compiler die korrekte Zuordnung zum Zielbetriebssystem durchführen kann. Der Ordner \textit{Pakete} ermöglicht es Pakete des \textbf{NuGET} Paket Managers einzubinden. Ein solches Paket kann beispielsweise eine MySQL Anbindung an einen Server sein.
         \end{minipage}
 	\end{figure}
 	% Die in Abbildung \ref{fig:xamarinformprojectstructure} wird im Laufe der Entwicklung um einige XAML und Code Behind Files wachsen. Der Prozess der Programmierung ist in Abschnitt \ref{chap:xamarinformsdevelopment} festgehalten.
@@ -196,15 +196,15 @@ class ViewModel{
 
 	\textbf{Code-behind} ist fest an Xamarin gekoppelt. Dies führt dazu, dass es schwer ist für eine solche code-behind Klasse einen Unit-Test zu implementieren. Um den Code in der code-behind Klasse dennoch testen zu können wird dieser Code in die ViewModel Klasse geschrieben und abgeändert um eine minimale Kopplung mit Xamarin zu haben. Der Code ist nun ein \textbf{Plain Old CLR Object (POCO)} Objekt für das Unit-Tests erzeugt werden können.
 
-	\textbf{Unit/Model Tests} sind Software Tests welche funktionale Einzelteile von Software auf deren korrekte Funktionalität testen. Die für diese Arbeit geschriebene Cross-platform Applikation wird keine Unit/Modul Test implementieren.
+	\textbf{Unit/Model Tests} sind Software Tests welche funktionale Einzelteile von Software auf deren korrekte Funktionalität testen. Die für diese Arbeit geschriebene CP Applikation wird keine Unit/Modul Test implementieren.
 
 \newpage
 \subsection{Projekterstellung mit Visual Studio for Mac}
 \label{sec:xamarincreateproject}
 
-	Für die Entwicklung der Cross-Platform Applikation wird \textbf{Visual Studio for Mac} verwendet im sowohl eine Android als auch iOS Version der Applikation entwickeln zu können. Die Projekterstellung unter Windows mit \textbf{Visual Studio 2015} oder \textbf{2017} verläuft analog im gleichen Schema.
+	Für die Entwicklung der CP Applikation wird \textbf{Visual Studio for Mac} verwendet im sowohl eine Android als auch iOS Version der Applikation entwickeln zu können. Die Projekterstellung unter Windows mit \textbf{Visual Studio 2015} oder \textbf{2017} verläuft analog im gleichen Schema.
 
-	Zu Beginn wird eine Standard Xamarin.Forms Applikation erstellt. Hierbei muss entschieden werden wie der Cross-Platform Code geteilt werden soll:
+	Zu Beginn wird eine Standard Xamarin.Forms Applikation erstellt. Hierbei muss entschieden werden wie der CP Code geteilt werden soll:
 
 	\begin{figure}[h!]
 		\centering
@@ -241,7 +241,7 @@ class ViewModel{
 		\item \textit{Xamarin.Forms.Platform} linkt die Plattform spezifischen Renderer von Android und iOS damit Elemente in der PCL Klasse in Plattform spezifischen Code übersetzt werden können.
 		\item \textit{Xamarin.Forms.Xaml}
 	\end{itemize}
-	Der Code in einer PCL wird zur Laufzeit zu einer \textit{dynamically-linked library (DLL)} für die Zielplattform Referenzen zusammengefasst. Ist es für die Cross-platform Applikation notwendig Nativen Code auszuführen, kann dies durch bestimmte \textbf{IF Abfragen} in der PCL Klasse umgesetzt werden.\\
+	Der Code in einer PCL wird zur Laufzeit zu einer \textit{dynamically-linked library (DLL)} für die Zielplattform Referenzen zusammengefasst. Ist es für die CP Applikation notwendig Nativen Code auszuführen, kann dies durch bestimmte \textbf{IF Abfragen} in der PCL Klasse umgesetzt werden.\\
 
 	\begin{lstlisting}[caption={Plattform spezifischen Code in PCL ausführen},label={lst:xamarinpcl},captionpos=b,style=csharp]
 ...
